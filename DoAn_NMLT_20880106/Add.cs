@@ -50,7 +50,7 @@ namespace DoAn_NMLT_20880106
                     ThemSanPham(ref ArrayHH);
                     break;
                 case ConsoleKey.Backspace:
-                    Select.LuaChonChinh(ref ArrayHH);
+                    Select.LuaChonChinh(ref ArrayHH, 0);
                     break;
                 default:
                     DieuHuong(ref ArrayHH);
@@ -106,7 +106,7 @@ namespace DoAn_NMLT_20880106
                     ThemSanPham(ref ArrayHH);
                     break;
                 case ConsoleKey.Backspace:
-                    Select.LuaChonChinh(ref ArrayHH);
+                    Select.LuaChonChinh(ref ArrayHH, 0);
                     break;
                 default:
                     ArrayHH.Add(SP);

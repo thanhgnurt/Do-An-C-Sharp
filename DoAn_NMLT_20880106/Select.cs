@@ -7,63 +7,104 @@ namespace DoAn_NMLT_20880106
 {
     public class Select
     {
-        public static void LuaChonChinh(ref ArrayList ArrayHH)
+        //---điều hướng
+
+    
+        // thực đơn chính
+        static void ThucDonChinh(int luaChon)
         {
-
-
-            for (; ; )
+            string them = "Thêm hàng hóa        |";
+            string sua = "Sửa hàng hóa         |";
+            string xoa = "Xóa hàng hóa         |";
+            string timKiem = "Tìm kiếm hàng hóa    |";
+            string thoat = "Exit                 |";
+            string[] ThucDon = new string[5] { them, sua, xoa, timKiem, thoat };
+            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("                     |");
+            Console.WriteLine("Thực Đơn Chính       |");
+            Console.WriteLine("_____________________|");
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.White;
+            for (int i=0;i< ThucDon.Length; i++)
             {
-
-                try
+                
+                if (luaChon == i)
                 {
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine("                     |");
+                    Console.WriteLine(ThucDon[i]);
+                    Console.WriteLine("_____________________|");
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Clear();
-                    Console.WriteLine("Họ và Tên : Lê Thành Trung  |");
-                    Console.WriteLine("MSSV: 20880106              |");
-                    Console.WriteLine("-----------------------------");
+                } else
+                {
+                    Console.WriteLine("                     |");
+                    Console.WriteLine(ThucDon[i]);
+                    Console.WriteLine("_____________________|");
+                }
+               
+            }
+        }
+        public static void LuaChonChinh(ref ArrayList ArrayHH, int select)
+        {
+            
+
                     Tittle.TieuDe();
-                    Console.WriteLine("=========================================");
-                    Console.WriteLine("Chọn chức năng:");
-                    Console.WriteLine("Nhấn 1: Thêm sản phẩm");
-                    Console.WriteLine("Nhấn 2: Sửa sản phẩm");
-                    Console.WriteLine("Nhấn 3: Xóa sản phẩm");
-                    Console.WriteLine("Nhấn 4: Tìm kiếm mặt hàng");
-                    Console.WriteLine("=========================================");
-                    int luaChon = int.Parse(Console.ReadLine());
-                    switch (luaChon)
+                    ThucDonChinh(select);
+                    //Console.WriteLine("__________________");
+                    ConsoleKeyInfo input;
+                    input = Console.ReadKey(true);
+                    
+                    switch (input.Key)
                     {
-                        case 1:
-                            Console.BackgroundColor = ConsoleColor.White;
-                            Console.ForegroundColor = ConsoleColor.Black;
-                            Console.Clear();
-                            Add.ThemSanPham(ref ArrayHH);
+                        case ConsoleKey.DownArrow:
+                            if (select == 4)
+                            {
+                                Console.Clear();
+                                LuaChonChinh(ref ArrayHH, select);
+                                
+
+                            } else
+                            {
+                                select++;
+                                Console.Clear();
+                                LuaChonChinh(ref ArrayHH, select);
+
+                            }
+                            //Console.Clear();
+                            //Add.ThemSanPham(ref ArrayHH);
                             return;
-                        case 2:
-                            Edit.SuaHangHoa(ref ArrayHH);
+                        case ConsoleKey.UpArrow:
+                            //Edit.SuaHangHoa(ref ArrayHH);
+                            if (select == 0)
+                            {
+                                Console.Clear();
+                                LuaChonChinh(ref ArrayHH, select);
+
+
+                            } else
+                            {
+                                select--;
+                                Console.Clear();
+                                LuaChonChinh(ref ArrayHH, select);
+                            }
                             return;
-                        case 3:
+                        case ConsoleKey.Enter:
                             Console.BackgroundColor = ConsoleColor.Gray;
                             Console.ForegroundColor = ConsoleColor.Black;
                             Console.Clear();
                             Delete.XoaHangHoa(ref ArrayHH);
                             return;
-                        case 4:
-                            Find.TimKiem(ref ArrayHH);
+                        case ConsoleKey.Escape:
                             return;
                         default:
                             Console.Clear();
-                            Console.WriteLine("Bạn nhập không đúng vui lòng nhập lại");
+                            LuaChonChinh(ref ArrayHH, select);
                             return;
                     }
-                } catch
-                {
-
-                    Console.Clear();
-                    Console.WriteLine("Bạn nhập không đúng vui lòng nhập lại");
-                }
-
-            }
+              
 
         }
     }

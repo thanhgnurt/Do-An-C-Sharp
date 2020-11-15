@@ -6,13 +6,26 @@ namespace DoAn_NMLT_20880106
 {
     public class Tittle
     {
+        //--Tiêu đề
         public static void TieuDe()
         {
-            Console.CursorTop = 5;
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Clear();
+            Console.WriteLine("Họ và Tên : Lê Thành Trung  |");
+            Console.WriteLine("MSSV: 20880106              |");
+            Console.WriteLine("____________________________|");
+            TenPhanMem();
+            Console.WriteLine("_____________________");
+        }
+        static void TenPhanMem()
+        {
+            Console.CursorTop = 4;
             Console.CursorLeft = 40;
             Console.BackgroundColor = ConsoleColor.Red;
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" ĐÔ ÁN : Phần Mềm Quản Lý Cửa Hàng ");
+            Console.WriteLine(" ĐỒ ÁN: PHẦN MỀM QUẢN LÝ HÀNG HÓA ");
+            Console.WriteLine();
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
             

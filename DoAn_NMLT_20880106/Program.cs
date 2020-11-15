@@ -67,7 +67,7 @@ namespace DoAn_NMLT_20880106
             Console.OutputEncoding = Encoding.Unicode;
             Console.InputEncoding = Encoding.Unicode;
 
-            Select.LuaChonChinh(ref ArraySP);
+            Select.LuaChonChinh(ref ArraySP, 0);
 
         }
     }
