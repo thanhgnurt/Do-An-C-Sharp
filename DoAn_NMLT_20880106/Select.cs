@@ -16,8 +16,15 @@ namespace DoAn_NMLT_20880106
 
                 try
                 {
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Clear();
+                    Console.WriteLine("Họ và Tên : Lê Thành Trung  |");
+                    Console.WriteLine("MSSV: 20880106              |");
+                    Console.WriteLine("-----------------------------");
+                    Tittle.TieuDe();
                     Console.WriteLine("=========================================");
-                    Console.WriteLine("Vui lòng chọn một trong những chức năng sau đây:");
+                    Console.WriteLine("Chọn chức năng:");
                     Console.WriteLine("Nhấn 1: Thêm sản phẩm");
                     Console.WriteLine("Nhấn 2: Sửa sản phẩm");
                     Console.WriteLine("Nhấn 3: Xóa sản phẩm");
@@ -27,10 +34,13 @@ namespace DoAn_NMLT_20880106
                     switch (luaChon)
                     {
                         case 1:
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            Console.Clear();
                             Add.ThemSanPham(ref ArrayHH);
                             return;
                         case 2:
-                            Edit.SuaHangHoa();
+                            Edit.SuaHangHoa(ref ArrayHH);
                             return;
                         case 3:
                             Console.BackgroundColor = ConsoleColor.Gray;
@@ -38,7 +48,9 @@ namespace DoAn_NMLT_20880106
                             Console.Clear();
                             Delete.XoaHangHoa(ref ArrayHH);
                             return;
-                        case 4: return;
+                        case 4:
+                            Find.TimKiem(ref ArrayHH);
+                            return;
                         default:
                             Console.Clear();
                             Console.WriteLine("Bạn nhập không đúng vui lòng nhập lại");

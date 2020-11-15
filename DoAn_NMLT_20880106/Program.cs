@@ -14,7 +14,7 @@ namespace DoAn_NMLT_20880106
             ArrayList ArraySP = new ArrayList();
             Struct.HOANGHOA hh1, hh2, hh3, hh4;
             //hang hoa 1
-            hh1.MaHH = 4251;
+            hh1.MaHH = "4215";
             hh1.TenHH = "Galaxy note p20";
             hh1.HanDung.Ngay = 20;
             hh1.HanDung.Thang = 5;
@@ -23,7 +23,7 @@ namespace DoAn_NMLT_20880106
             hh1.CtySX = "SamSung";
             hh1.LoaiHang = "Điện tử";
             //hang hóa 2
-            hh2.MaHH = 3256;
+            hh2.MaHH = "1256";
             hh2.TenHH = "Nước khoáng Aquafina";
             hh2.HanDung.Ngay = 15;
             hh2.HanDung.Thang = 5;
@@ -32,7 +32,7 @@ namespace DoAn_NMLT_20880106
             hh2.CtySX = "Pepsi";
             hh2.LoaiHang = "Đồ uống";
             //hang hoa 3
-            hh3.MaHH = 1256;
+            hh3.MaHH = "g125";
             hh3.TenHH = "Iphone";
             hh3.HanDung.Ngay = 05;
             hh3.HanDung.Thang = 07;
@@ -41,7 +41,7 @@ namespace DoAn_NMLT_20880106
             hh3.CtySX = "Apple";
             hh3.LoaiHang = "Đồ điện tử";
             //hang hoa 4
-            hh4.MaHH = 3256;
+            hh4.MaHH = "M125";
             hh4.TenHH = "Rượu vang";
             hh4.HanDung.Ngay = 10;
             hh4.HanDung.Thang = 02;
@@ -63,17 +63,10 @@ namespace DoAn_NMLT_20880106
         //----------------------------------------------Main------------------------------------
         static void Main(string[] args)
         {
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Clear();
-
             ArrayList ArraySP = DuLieuMau();
             Console.OutputEncoding = Encoding.Unicode;
             Console.InputEncoding = Encoding.Unicode;
-            Console.WriteLine("Họ và Tên : Lê Thành Trung");
-            Console.WriteLine("MSSV: 20880106");
-            Console.WriteLine("-------------------------------------------");
-            Tittle.TieuDe();
+
             Select.LuaChonChinh(ref ArraySP);
 
         }

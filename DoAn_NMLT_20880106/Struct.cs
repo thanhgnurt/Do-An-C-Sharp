@@ -16,7 +16,7 @@ namespace DoAn_NMLT_20880106
 
         public struct HOANGHOA
         {
-            public int MaHH;
+            public string MaHH;
             public string TenHH;
             public NGAYTHANGNAM HanDung;
             public string CtySX;

@@ -5,11 +5,11 @@ using System.Collections;
 using System.Threading;
 namespace DoAn_NMLT_20880106
 {
-    public class Edit
+    public class Find
     {
-       public static void SuaHangHoa(ref ArrayList ArrayH)
+        public static void TimKiem(ref ArrayList ArrayH)
         {
-            Console.WriteLine("Vui lòng chọn sản phẩm: ");
+            Console.WriteLine("Tìm kiếm.....");
 
         }
 
