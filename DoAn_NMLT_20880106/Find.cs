@@ -7,7 +7,7 @@ namespace DoAn_NMLT_20880106
 {
     public class Find
     {
-        public static void TimKiem(ref ArrayList ArrayH)
+        public static void TimKiemHangHoa(ref ArrayList ArrayH)
         {
             Console.WriteLine("Tìm kiếm.....");
 
