@@ -7,27 +7,217 @@ namespace DoAn_NMLT_20880106
 {
     public class Add
     {
-        //-- nhập dữ liệu, int = 1, string = 0
-        static void NhapInt(string tittle,ref int intBN, string DoiTuong)
+        //---form---input
+        public static void FormInput(ArrayList ArrayHH)
         {
+
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
+            Console.CursorTop = 0;
+            Console.CursorLeft = 0;
+            Console.WriteLine("THÊM SẢN PHẨM |");
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("--------------*");
+            //Struct.HOANGHOA SP;
+            InputHH(1, 2, "Hãy nhập mã mặt hàng:");
+            //SP.MaHH = Console.ReadLine();
+            InputHH(2, 2, "Hãy nhập tên hàng hóa");
+            //SP.TenHH = Console.ReadLine();
+            //int ngay = 0, thang = 0, nam = 0;
+            //NhapNgayThangNam(ref ngay, ref thang, ref nam, 3, 1);
+            int top = 3;
+            //SP.HanDung.Ngay = ngay;
+            //SP.HanDung.Nam = nam;
+            //SP.HanDung.Thang = thang;
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            InputHH(4, 2, "Hãy nhập công ty sản xuất:                               ");
+            //SP.CtySX = Console.ReadLine();
+            InputHH(5, 1, "Hay nhập năm xản xuât");
+            //int namSX = 0;
+            Console.CursorLeft = 2;
+            //SP.NamSX = NhapInt(namSX, "Năm Sản Xuất", 22, 2);
+            InputHH(6, 2, "Hãy nhập loại hàng hóa:      ");
+            //SP.LoaiHang = Console.ReadLine();
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.CursorTop = top * 4 - 2;
+            Console.CursorLeft = 1;
+            Console.WriteLine("Hãy nhập hạn sử dụng:");
+            Console.CursorTop = top * 4 - 1;
+            Console.CursorLeft = 2;
+            Console.WriteLine("Ngày:");
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.CursorTop = top * 4 - 1;
+            Console.CursorLeft = 8;
+            Console.WriteLine("-------------");
+            Console.CursorLeft = 8;
+            Console.WriteLine("             ");
+            Console.CursorLeft = 8;
+            Console.WriteLine("             ");
+            Console.CursorTop = top * 4;
+            Console.CursorLeft = 9;
+           // ngay = NhapInt(ngay, "Ngày", 14, 9);
+            Console.CursorTop = top * 4 - 1;
+            Console.CursorLeft = 24;
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Tháng:");
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.CursorTop = top * 4 - 1;
+            Console.CursorLeft = 31;
+            Console.WriteLine("--------------");
+            Console.CursorLeft = 31;
+            Console.WriteLine("              ");
+            Console.CursorLeft = 31;
+            Console.WriteLine("              ");
+            Console.CursorTop = top * 4;
+            Console.CursorLeft = 32;
+           // thang = NhapInt(thang, "Tháng", 14, 32);
+            Console.CursorTop = top * 4 - 1;
+            Console.CursorLeft = 49;
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Năm:");
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.CursorTop = top * 4 - 1;
+            Console.CursorLeft = 54;
+            Console.WriteLine("--------------");
+            Console.CursorLeft = 54;
+            Console.WriteLine("              ");
+            Console.CursorLeft = 54;
+            Console.WriteLine("              ");
+            Console.CursorTop = top * 4;
+            Console.CursorLeft = 55;
+           // nam = NhapInt(nam, "Năm", 14, 55);
+
+            //Console.CursorTop = 27;
+           // Console.BackgroundColor = ConsoleColor.Gray;
+            //Console.ForegroundColor = ConsoleColor.Black;
+            //Console.WriteLine(" Để lưu chọn phím bất kỳ");
+            //Console.WriteLine(" Để quay lại trang chính chọn BACKSPACE ");
+            //Console.WriteLine(" Để nhập lại chọn R");
+           // Console.WriteLine(" Để thoát chon ESC");
+           // ConsoleKeyInfo input;
+           // input = Console.ReadKey(true);
+
+
+
+
+
+        }
+        // -- nhập ngày tháng
+        static void NhapNgayThangNam(ref int ngay, ref int thang, ref int nam, int top, int left)
+        {
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.CursorTop = top * 4 - 2;
+            Console.CursorLeft = 1;
+            Console.WriteLine("Hãy nhập hạn sử dụng:");
+            Console.CursorTop = top * 4-1 ;
+            Console.CursorLeft = 2;
+            Console.WriteLine("Ngày:");
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.CursorTop = top * 4-1;
+            Console.CursorLeft = 8;
+            Console.WriteLine("-------------");
+            Console.CursorLeft = 8;
+            Console.WriteLine("             ");
+            Console.CursorLeft = 8;
+            Console.WriteLine("             ");
+            Console.CursorTop = top * 4;
+            Console.CursorLeft = 9;
+            ngay = NhapInt(ngay, "Ngày", 14, 9);
+            Console.CursorTop = top * 4-1;
+            Console.CursorLeft = 24;
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Tháng:");
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.CursorTop = top * 4 - 1;
+            Console.CursorLeft = 31;
+            Console.WriteLine("--------------");
+            Console.CursorLeft = 31;
+            Console.WriteLine("              ");
+            Console.CursorLeft = 31;
+            Console.WriteLine("              ");
+            Console.CursorTop = top * 4;
+            Console.CursorLeft = 32;
+            thang = NhapInt(thang, "Tháng", 14, 32);
+            Console.CursorTop = top * 4-1;
+            Console.CursorLeft = 49;
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Năm:");
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.CursorTop = top * 4 - 1;
+            Console.CursorLeft = 54;
+            Console.WriteLine("--------------");
+            Console.CursorLeft = 54;
+            Console.WriteLine("              ");
+            Console.CursorLeft = 54;
+            Console.WriteLine("              ");
+            Console.CursorTop = top * 4;
+            Console.CursorLeft = 55;
+            nam = NhapInt(nam,"Năm", 14, 55);
+
+
+        }
+        //-- nhập dữ liệu, int = 1, string = 0
+        static int NhapInt(int intBN, string DoiTuong, int top, int left)
+        {
+            int flag = 1;
             for(; ; )
             {
                 try
                 {
-                    Console.WriteLine(tittle);
+
+                    if (flag==1)
+                    {
+                       
+                        Console.BackgroundColor = ConsoleColor.White;
+                    }
+                    if (flag == 2)
+                    {
+
+                        Console.BackgroundColor = ConsoleColor.Magenta;
+                    }
+                    if (flag == 3)
+                    {
+
+                        Console.BackgroundColor = ConsoleColor.Cyan;
+                    }
                     intBN = int.Parse(Console.ReadLine());
-                    return;
+                    return intBN;
                   
                 }
                 catch
                 {
-                    Console.WriteLine("Bạn nhập sai định dạng {0} vui lòng nhập lại:", DoiTuong);
+                    if (flag == 3)
+                    {
+                        flag = 0;
+                    }
+                    flag++;
+                    Console.CursorTop = top ;
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.Write("  ");
+                    Console.CursorLeft = 2;
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.Write(" Bạn nhập sai định dạng ");
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.Write(" {0} ",DoiTuong);
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.Write(" vui lòng nhập số!     ");
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.Write("     ");
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.CursorTop = top - 2;
+                    Console.CursorLeft = left;
+
                 }
             }
         }
         // điều hướng
         static void DieuHuong(ref ArrayList ArrayHH)
         {
+            
             Console.CursorTop = 5;
             Console.CursorLeft = 40;
             Console.WriteLine("Để quay lại trang chính chọn BACKSPACE");
@@ -46,6 +236,8 @@ namespace DoAn_NMLT_20880106
                 case ConsoleKey.Escape:
                     break;
                 case ConsoleKey.Enter:
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.Clear();
                     ThemSanPham(ref ArrayHH);
                     break;
@@ -59,43 +251,64 @@ namespace DoAn_NMLT_20880106
 
         }
 
+        //  input
+        static void InputHH(int top, int left, string header)
+        {
+            //first top 4 left 1
+            Console.CursorTop = top * 4 -2;
+            Console.CursorLeft = 0;
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.WriteLine(" {0}",header);
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.WriteLine("--------------------------------------------------------------------");
+            Console.WriteLine("                                                                    ");
+            Console.WriteLine("                                                                    ");
+            Console.CursorTop = top * 4;
+            Console.CursorLeft = left;
+
+        }
+
 
         public static void ThemSanPham(ref ArrayList ArrayHH)
         {
-          
 
+            FormInput(ArrayHH);
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.DarkYellow;
+            Console.CursorTop = 0;
+            Console.CursorLeft = 0;
             Console.WriteLine("THÊM SẢN PHẨM |");
-            Console.BackgroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("--------------*");
             Struct.HOANGHOA SP;
-            Console.WriteLine("Hãy nhập mã mặt hàng:");
+            InputHH(1, 2, "Hãy nhập mã mặt hàng:");
             SP.MaHH = Console.ReadLine();
-            Console.WriteLine("Hãy nhập tên mặt hàng:");
+            InputHH(2, 2, "Hãy nhập tên hàng hóa");
             SP.TenHH = Console.ReadLine();
-            Console.WriteLine("Hãy nhập hạn dùng");
-            int Ngay = 0;
-            NhapInt("Nhập ngày", ref Ngay, "ngày");
-            SP.HanDung.Ngay = Ngay;
-            int Thang = 0;
-            NhapInt("Nhập tháng", ref Thang, "tháng");
-            SP.HanDung.Thang = Thang;
-            int Nam = 0;
-            NhapInt("Nhập năm", ref Nam, "năm");
-            SP.HanDung.Nam = Nam;
-            Console.WriteLine("Hãy nhập công ty sản xuất :");
+            int ngay=0, thang=0, nam=0;
+            NhapNgayThangNam(ref ngay, ref thang, ref nam, 3, 1);
+            SP.HanDung.Ngay = ngay;
+            SP.HanDung.Nam = nam;
+            SP.HanDung.Thang = thang;
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            InputHH(4, 2, "Hãy nhập công ty sản xuất:                                           ");
             SP.CtySX = Console.ReadLine();
-            int NamSanXuat=0;
-            NhapInt("Hay nhập năm xản xuât",ref NamSanXuat,"năm sản xuất");
-            SP.NamSX = NamSanXuat;
-            Console.WriteLine("Hãy nhập loại hàng hóa :");
-            SP.LoaiHang = Console.ReadLine();
-            Console.WriteLine("Để lưu chọn phím bất kỳ");
-            Console.WriteLine("Để quay lại trang chính chọn BACKSPACE ");
-            Console.WriteLine("Để nhập lại chọn R");
-            Console.WriteLine("Để thoát chon ESC");
+            InputHH(5, 1, "Hay nhập năm xản xuât");
+            int namSX = 0;
+            Console.CursorLeft = 2;
+            SP.NamSX = NhapInt(namSX, "Năm Sản Xuất", 22, 2);
+            InputHH(6, 2, "Hãy nhập loại hàng hóa:                                              ");
+            SP.LoaiHang = Console.ReadLine(); 
+
+            Console.CursorTop = 27;
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine(" Để lưu chọn phím bất kỳ");
+            Console.WriteLine(" Để quay lại trang chính chọn BACKSPACE ");
+            Console.WriteLine(" Để nhập lại chọn R");
+            Console.WriteLine(" Để thoát chon ESC");
             ConsoleKeyInfo input;
             input = Console.ReadKey(true);
             switch (input.Key)

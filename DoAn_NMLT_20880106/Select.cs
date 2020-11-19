@@ -135,7 +135,6 @@ namespace DoAn_NMLT_20880106
             Tittle.TieuDe();
                     ThucDonChinh(select, ThucDon);
                     ChiDan();
-                    //Console.WriteLine("__________________");
                     ConsoleKeyInfo input;
                     input = Console.ReadKey(true);
                     
@@ -155,11 +154,8 @@ namespace DoAn_NMLT_20880106
                                 LuaChonChinh(ref ArrayHH, select);
 
                             }
-                            //Console.Clear();
-                            //Add.ThemSanPham(ref ArrayHH);
                             return;
                         case ConsoleKey.UpArrow:
-                            //Edit.SuaHangHoa(ref ArrayHH);
                             if (select == 0)
                             {
                                 Console.Clear();
@@ -179,7 +175,6 @@ namespace DoAn_NMLT_20880106
                             
                             Console.Clear();
                             DieuHuong(select, ref ArrayHH);
-                            //Delete.XoaHangHoa(ref ArrayHH);
                             return;
                         case ConsoleKey.Escape:
                             return;

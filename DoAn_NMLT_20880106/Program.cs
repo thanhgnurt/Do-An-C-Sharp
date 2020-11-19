@@ -66,7 +66,6 @@ namespace DoAn_NMLT_20880106
             ArrayList ArraySP = DuLieuMau();
             Console.OutputEncoding = Encoding.Unicode;
             Console.InputEncoding = Encoding.Unicode;
-
             Select.LuaChonChinh(ref ArraySP, 0);
 
         }
