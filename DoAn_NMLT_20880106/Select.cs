@@ -86,103 +86,182 @@ namespace DoAn_NMLT_20880106
         // thực đơn chính
         static void ThucDonChinh(int luaChon, string[] ThucDon)
         {
-
-            Console.BackgroundColor = ConsoleColor.DarkGray;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine("                            |");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" THỰC ĐƠN CHÍNH             |");
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine("____________________________|");
+            
+          //  Console.BackgroundColor = ConsoleColor.DarkGray;
+           // Console.ForegroundColor = ConsoleColor.Black;
+           // Console.WriteLine("                            |");
+           // Console.ForegroundColor = ConsoleColor.White;
+           // Console.ForegroundColor = ConsoleColor.Black;
+           // Console.WriteLine(" MENU                       |");
+           // Console.WriteLine("____________________________|");
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
+            int topRow1 = 7;
+            int topRow2 = topRow1;
+            int topRow3 = topRow1;
+            Console.CursorTop = topRow1;
+            
             for (int i=0;i< ThucDon.Length; i++)
             {
-                
+                int left = 30;
+                if (i > 3)
+                {
+                    left = 50;
+                    Console.CursorTop = topRow2;
+                    topRow2 += 5;
+
+                }
+                if (i > 7)
+                {
+                    left = 70;
+                    Console.CursorTop = topRow3;
+                    topRow3 += 5;
+
+                }
+
+
+
                 if (luaChon == i)
                 {
+                 
+                    
+
+                    Console.CursorLeft = left;
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.WriteLine("                            |");
+                    Console.CursorLeft = left;
+                    Console.WriteLine("                   |");
+                    Console.CursorLeft = left;
+                    Console.WriteLine("                   |");
                     Console.ForegroundColor = ConsoleColor.White;
+                    Console.CursorLeft = left;
                     Console.WriteLine(ThucDon[i]);
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.WriteLine("____________________________|");
+                    Console.CursorLeft = left;
+                    Console.WriteLine("                   |");
+                    Console.CursorLeft = left;
+                    Console.WriteLine("___________________|");
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.White;
                 } else
                 {
+                   
+
+                    Console.CursorLeft = left;
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.WriteLine("                            |");
+                    Console.WriteLine("                   |");
+                    Console.CursorLeft = left;
+                    Console.WriteLine("                   |");
+                    Console.CursorLeft = left;
                     Console.WriteLine(ThucDon[i]);
-                    Console.WriteLine("____________________________|");
+                    Console.CursorLeft = left;
+                    Console.WriteLine("                   |");
+                    Console.CursorLeft = left;
+                    Console.WriteLine("___________________|");
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.White;
                 }
-               
+
             }
+
         }
         public static void LuaChonChinh(ref ArrayList ArrayHH, int select)
         {
-            string them = " Thêm hàng hóa              |";
-            string sua = " Sửa hàng hóa               |";
-            string xoa = " Xóa hàng hóa               |";
-            string timKiem = " Tìm kiếm hàng hóa          |";
-            string KhoHang = " Kho Hàng Hóa               |";
-            string thoat = " Thoát(ESC)                 |";
-            string[] ThucDon = new string[6] { them, sua, xoa, timKiem, KhoHang, thoat };
+            string ThemHangHoa = " Thêm hàng hóa     |";
+            string SuaHangHoa = " Sửa hàng hóa      |";
+            string XoaHangHoa = " Xóa hàng hóa      |";
+            string TimKiemHangHoa = " Tìm kiếm hàng hóa |";
+            string ThemLoaiHang = " Thêm Loại Hàng    |";
+            string SuaLoaiHang = " Sửa Loại Hàng     |";
+            string XoaLoaiHang = " Xóa Loại Hàng     |";
+            string TimKiemLoaiHang = " Tìm Kiếm Loại Hàng|";
+            string KhoHang = " Kho Hàng Hóa      |";
+            string About = " About             |";
+            string Thoat = " Thoát(ESC)        |";
+            string[] ThucDon = new string[11] { ThemHangHoa,SuaHangHoa,XoaHangHoa,TimKiemHangHoa,
+                ThemLoaiHang, SuaLoaiHang, XoaLoaiHang, TimKiemLoaiHang, KhoHang, About, Thoat};
             Tittle.TieuDe();
-                    ThucDonChinh(select, ThucDon);
-                    ChiDan();
-                    ConsoleKeyInfo input;
-                    input = Console.ReadKey(true);
-                    
-                    switch (input.Key)
+            ThucDonChinh(select, ThucDon);
+                    //ChiDan();
+            ConsoleKeyInfo input;
+            Console.CursorTop = 0;
+            Console.CursorLeft = 0;
+            input = Console.ReadKey(true);
+                switch (input.Key)
+                {
+                case ConsoleKey.DownArrow:
+                    if (select == ThucDon.Length-1)
                     {
-                        case ConsoleKey.DownArrow:
-                            if (select == ThucDon.Length-1)
-                            {
-                                Console.Clear();
-                                LuaChonChinh(ref ArrayHH, select);
+                        //Console.Clear();
+                        LuaChonChinh(ref ArrayHH, select);
                                 
 
-                            } else
-                            {
-                                select++;
-                                Console.Clear();
-                                LuaChonChinh(ref ArrayHH, select);
+                    } else
+                    {
+                        select++;
+                        //Console.Clear();
+                        LuaChonChinh(ref ArrayHH, select);
 
-                            }
-                            return;
-                        case ConsoleKey.UpArrow:
-                            if (select == 0)
-                            {
-                                Console.Clear();
-                                LuaChonChinh(ref ArrayHH, select);
-
-
-                            } else
-                            {
-                                select--;
-                                Console.Clear();
-                                LuaChonChinh(ref ArrayHH, select);
-                            }
-                            return;
-                        case ConsoleKey.Enter:
-                            Console.BackgroundColor = ConsoleColor.Gray;
-                            Console.ForegroundColor = ConsoleColor.Black;
-                            
-                            Console.Clear();
-                            DieuHuong(select, ref ArrayHH);
-                            return;
-                        case ConsoleKey.Escape:
-                            return;
-                        default:
-                            Console.Clear();
-                            LuaChonChinh(ref ArrayHH, select);
-                            return;
                     }
+                    return;
+                case ConsoleKey.UpArrow:
+                    if (select == 0)
+                    {
+                       // Console.Clear();
+                        LuaChonChinh(ref ArrayHH, select);
+
+
+                    } else
+                    {
+                        select--;
+                       // Console.Clear();
+                        LuaChonChinh(ref ArrayHH, select);
+                    }
+                    return;
+                case ConsoleKey.RightArrow:
+                    if (select <ThucDon.Length-4)
+                    {
+                        select += 4;
+                       // Console.Clear();
+                        LuaChonChinh(ref ArrayHH, select);
+
+                    } else
+                    {
+                       // Console.Clear();
+                        LuaChonChinh(ref ArrayHH, select);
+                    }
+
+                    return;
+                case ConsoleKey.LeftArrow:
+                    if (select >=4)
+                    {
+                        select -= 4;
+                        //Console.Clear();
+                        LuaChonChinh(ref ArrayHH, select);
+
+                    }
+                    else
+                    {
+                        //Console.Clear();
+                        LuaChonChinh(ref ArrayHH, select);
+                    }
+                    return;
+                case ConsoleKey.Enter:
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                            
+                   Console.Clear();
+                    DieuHuong(select, ref ArrayHH);
+                    return;
+                case ConsoleKey.Escape:
+                    Console.Clear();
+                    return;
+                default:
+                    //Console.Clear();
+                    LuaChonChinh(ref ArrayHH, select);
+                    return;
+                }
               
 
         }

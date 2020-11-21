@@ -204,8 +204,8 @@ namespace DoAn_NMLT_20880106
                     Console.Write(" {0} ",DoiTuong);
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.Write(" vui lòng nhập số!     ");
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.Write("     ");
+                    //Console.BackgroundColor = ConsoleColor.Black;
+                    //Console.Write("     ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.CursorTop = top - 2;
