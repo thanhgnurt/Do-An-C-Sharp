@@ -173,6 +173,10 @@ namespace DoAn_NMLT_20880106
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.Write("Do you want to {0}?", ChucNang);
+            Console.CursorLeft = 0;
+            Console.CursorTop = 0;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" Để thoát chon ESC");
 
             //
 
@@ -201,6 +205,21 @@ namespace DoAn_NMLT_20880106
                 }
             }
 
+
+        }
+
+        //form tim kiem
+        public static void FormTimKiem(string Tittle)
+        {
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
+            Console.CursorTop = 0;
+            Console.CursorLeft = 0;
+            Console.WriteLine("{0}  |", Tittle);
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("--------------*");
+            Add.InputHH(1, 2, "Nhập từ khóa tìm kiếm....");
 
         }
 

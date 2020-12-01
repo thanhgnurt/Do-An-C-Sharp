@@ -119,7 +119,7 @@ namespace DoAn_NMLT_20880106
             }
         }
         // điều hướng
-        static void DieuHuong(ref ArrayList ArrayHH, ref ArrayList ArrayLH)
+        public static void DieuHuong(ref ArrayList ArrayHH, ref ArrayList ArrayLH)
         {
             
             Console.CursorTop = 5;
@@ -173,61 +173,7 @@ namespace DoAn_NMLT_20880106
             Console.CursorLeft = left;
 
         }
-        // sửa lại thêm laoij hang
-        public static void ThemLoaiHang(ref ArrayList ArrayLH, ref ArrayList ArrayHH)
-        {
-            Form.FormLoaiHang();
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.BackgroundColor = ConsoleColor.DarkYellow;
-            Console.CursorTop = 0;
-            Console.CursorLeft = 0;
-            Console.WriteLine("THÊM LOẠI HÀNG |");
-            Console.BackgroundColor = ConsoleColor.Gray;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine("--------------*");
-            Struct.LOAIHANG LH;
-            InputHH(1, 2, "");
-            LH.MaLH = Console.ReadLine();
-            InputHH(2, 2, "");
-            LH.TenLH = Console.ReadLine();
-            InputHH(3, 2, "");
-            LH.MotaLH = Console.ReadLine();
-            Console.CursorTop = 15;
-            Console.BackgroundColor = ConsoleColor.Gray;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine(" Để lưu chọn phím bất kỳ");
-            Console.WriteLine(" Để quay lại trang chính chọn BACKSPACE ");
-            Console.WriteLine(" Để nhập lại chọn R");
-            Console.WriteLine(" Để thoát chon ESC");
-            ConsoleKeyInfo input;
-            input = Console.ReadKey(true);
-            switch (input.Key)
-            {
-                case ConsoleKey.Escape:
-                    break;
-                case ConsoleKey.R:
-                    ThemLoaiHang(ref ArrayLH, ref ArrayLH);
-                    break;
-                case ConsoleKey.Backspace:
-                    Tittle.TieuDe();
-                    Select.LuaChonChinh(ref ArrayLH, ref ArrayLH, 0);
-                    break;
-                default:
-                    ArrayLH.Add(LH);
-                    Console.Clear();
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("Bạn đã lưu thành công!");
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    DieuHuong(ref ArrayLH, ref ArrayLH);
-                    break;
-            }
 
-
-
-
-        }
         
         public static void ThemHangHoa(ref ArrayList ArrayHH, ref ArrayList ArrayLH)
         {
@@ -261,10 +207,10 @@ namespace DoAn_NMLT_20880106
             SP.NamSX = NhapInt(namSX, "Năm Sản Xuất", 22, 2);
             InputHH(6, 2, "Hãy nhập loại hàng hóa:                                              ");
             SP.LoaiHang = Console.ReadLine(); 
-
             Console.CursorTop = 27;
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
+            
             Console.WriteLine(" Để lưu chọn phím bất kỳ");
             Console.WriteLine(" Để quay lại trang chính chọn BACKSPACE ");
             Console.WriteLine(" Để nhập lại chọn R");
@@ -279,7 +225,7 @@ namespace DoAn_NMLT_20880106
                     ThemHangHoa(ref ArrayHH, ref ArrayLH);
                     break;
                 case ConsoleKey.Backspace:
-                    Console.Clear();
+                    Tittle.TieuDe();
                     Select.LuaChonChinh(ref ArrayHH,ref ArrayLH, 0);
                     break;
                 default:

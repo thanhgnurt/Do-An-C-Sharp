@@ -22,12 +22,13 @@ namespace DoAn_NMLT_20880106
                     Delete.XoaHangHoa(ref ArrayHH, ref ArrayLH);
                     return;
                 case 3:
-                    Find.TimKiemHangHoa(ref ArrayHH);
+                    Find.TimKiemHangHoa(ArrayHH, ArrayLH);
                     return;
                 case 4:
-                    Add.ThemLoaiHang(ref ArrayLH, ref ArrayHH);
+                    AddLH.ThemLoaiHang(ref ArrayLH, ref ArrayHH);
                     return;
                 case 5:
+                    EditLH.SuaLoaiHang(ref ArrayLH, ref ArrayHH);
                     return;
             }
 
@@ -215,7 +216,7 @@ namespace DoAn_NMLT_20880106
                     DieuHuong(select, ref ArrayHH, ref ArrayLH);
                     return;
                 case ConsoleKey.Escape:
-                   Console.Clear();
+                    LuaChonChinh(ref ArrayHH, ref ArrayLH, select);
                     return;
                 default:
                     LuaChonChinh(ref ArrayHH, ref ArrayLH, select);

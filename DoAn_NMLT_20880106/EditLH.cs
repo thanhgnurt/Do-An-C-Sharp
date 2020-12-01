@@ -5,12 +5,12 @@ using System.Collections;
 using System.Threading;
 namespace DoAn_NMLT_20880106
 {
-    public class Edit
+    public class EditLH
     {
 
 
         // function main
-        public static void SuaHangHoa(ref ArrayList ArrayHH, ref ArrayList ArrayLH)
+        public static void SuaLoaiHang(ref ArrayList ArrayHH, ref ArrayList ArrayLH)
         {
             //---back main
             Console.ForegroundColor = ConsoleColor.White;
@@ -27,7 +27,7 @@ namespace DoAn_NMLT_20880106
             }
             else
             {
-                Show.HienThiHangHoa(ref ArrayHH, ref ArrayLH, "Edit HH");
+                Show.HienThiLoaiHang(ref ArrayHH, ref ArrayLH, "Edit HH");
 
 
             }
@@ -174,7 +174,7 @@ namespace DoAn_NMLT_20880106
                         return;
 
 
-                    } 
+                    }
                 }
                 switch (input.Key)
                 {
@@ -478,12 +478,12 @@ namespace DoAn_NMLT_20880106
                 try
                 {
 
-                    
+
 
                     Console.BackgroundColor = ConsoleColor.White;
-                    
-                 
-                  
+
+
+
                     intBN = int.Parse(Console.ReadLine());
                     return intBN;
 
@@ -492,9 +492,11 @@ namespace DoAn_NMLT_20880106
                 {
                     Console.CursorTop = top;
                     Console.CursorLeft = left;
-                    if(left > 5) { 
+                    if (left > 5)
+                    {
                         Console.Write("         ");
-                    } else
+                    }
+                    else
                     {
                         Console.Write("                               ");
                     }
