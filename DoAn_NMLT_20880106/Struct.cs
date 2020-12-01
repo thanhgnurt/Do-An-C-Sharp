@@ -23,5 +23,13 @@ namespace DoAn_NMLT_20880106
             public int NamSX;
             public string LoaiHang;
         }
+
+        public struct LOAIHANG
+        {
+            public string MaLH;
+            public string TenLH;
+            public string MotaLH;
+        }
+
     }
 }

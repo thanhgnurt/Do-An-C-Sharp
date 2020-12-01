@@ -9,7 +9,9 @@ namespace DoAn_NMLT_20880106
     public class Program
     {
         //tạo dữ liễu mẫu
-        static ArrayList DuLieuMau()
+    
+
+        public static ArrayList DuLieuMauHangHoa()
         {
             ArrayList ArraySP = new ArrayList();
             Struct.HOANGHOA hh1, hh2, hh3, hh4;
@@ -39,7 +41,7 @@ namespace DoAn_NMLT_20880106
             hh3.HanDung.Nam = 2030;
             hh3.NamSX = 2020;
             hh3.CtySX = "Apple";
-            hh3.LoaiHang = "Đồ điện tử";
+            hh3.LoaiHang = "Điện tử";
             //hang hoa 4
             hh4.MaHH = "M125";
             hh4.TenHH = "Rượu vang";
@@ -58,15 +60,49 @@ namespace DoAn_NMLT_20880106
             return ArraySP;
 
         }
-        
-     
+
+        static ArrayList DuLieuMauLoaiHang()
+        {
+            ArrayList ArrayLH = new ArrayList();
+            Struct.LOAIHANG lh1, lh2, lh3, lh4;
+            //hang hoa 1
+            lh1.MaLH = "T125";
+            lh1.TenLH = "Thực phẩm";
+            lh1.MotaLH = "";
+            //hang hóa 2
+            lh2.MaLH = "D127";
+            lh2.TenLH = "Điện Tử";
+            lh2.MotaLH = "";
+            //hang hoa 3
+            lh3.MaLH = "Q128";
+            lh3.TenLH = "Đồ uống có cồn";
+            lh3.MotaLH = "";
+            //hang hoa 4
+            lh4.MaLH = "T125";
+            lh4.TenLH = "Đồ uống";
+            lh4.MotaLH = "";
+            //
+            ArrayLH.Add(lh1);
+            ArrayLH.Add(lh2);
+            ArrayLH.Add(lh3);
+            ArrayLH.Add(lh4);
+            return ArrayLH;
+
+        }
+
+
+
+
+
         //----------------------------------------------Main------------------------------------
         static void Main(string[] args)
         {
-            ArrayList ArraySP = DuLieuMau();
+            ArrayList ArrayHH = DuLieuMauHangHoa();
+            ArrayList ArrayLH = DuLieuMauLoaiHang();
             Console.OutputEncoding = Encoding.Unicode;
             Console.InputEncoding = Encoding.Unicode;
-            Select.LuaChonChinh(ref ArraySP, 0);
+            Tittle.TieuDe();
+            Select.LuaChonChinh(ref ArrayHH,ref ArrayLH, 0);
 
         }
     }

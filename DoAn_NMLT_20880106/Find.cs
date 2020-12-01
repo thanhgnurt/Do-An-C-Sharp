@@ -10,6 +10,7 @@ namespace DoAn_NMLT_20880106
         public static void TimKiemHangHoa(ref ArrayList ArrayH)
         {
             Console.WriteLine("Tìm kiếm.....");
+            
 
         }
 

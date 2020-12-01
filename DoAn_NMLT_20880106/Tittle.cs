@@ -12,7 +12,7 @@ namespace DoAn_NMLT_20880106
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
             Console.Clear();
-            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.DarkBlue;
            // Console.WriteLine("                            |");
             Console.WriteLine(" Họ và Tên : Lê Thành Trung |");
@@ -24,17 +24,18 @@ namespace DoAn_NMLT_20880106
         }
         static void TenPhanMem()
         {
-            Console.CursorTop = 3;
-            Console.CursorLeft = 42;
-            Console.BackgroundColor = ConsoleColor.DarkYellow;
+            int left = 45;
+            Console.CursorTop = 2;
+            Console.CursorLeft = left;
+            Console.BackgroundColor = ConsoleColor.Red;
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine("                                    ");
+            Console.WriteLine("                             ");
+            Console.CursorTop = 3;
+            Console.CursorLeft = left;
+            Console.WriteLine("  PHẦN MỀM QUẢN LÝ HÀNG HÓA  ");
             Console.CursorTop = 4;
-            Console.CursorLeft = 42;
-            Console.WriteLine("  ĐỒ ÁN: PHẦN MỀM QUẢN LÝ HÀNG HÓA  ");
-            Console.CursorTop = 5;
-            Console.CursorLeft = 42;
-            Console.WriteLine("                                    ");
+            Console.CursorLeft = left;
+            Console.WriteLine("                             ");
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
             
