@@ -10,7 +10,7 @@ namespace DoAn_NMLT_20880106
         // sửa lại thêm laoij hang
         public static void ThemLoaiHang(ref ArrayList ArrayLH, ref ArrayList ArrayHH)
         {
-            Form.FormLoaiHang();
+            Form.FormLoaiHang("THÊM LOẠI HÀNG");
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             Console.CursorTop = 0;
@@ -27,7 +27,7 @@ namespace DoAn_NMLT_20880106
             Add.InputHH(3, 2, "");
             LH.MotaLH = Console.ReadLine();
             bool flag;
-            flag = Form.FormXacNhan(10, 40, 5, 40, "Save LH", ref ArrayHH);
+            flag = Form.FormXacNhan(10, 40, 5, 40, "Save LH");
             if (flag)
             {
                 ArrayLH.Add(LH);

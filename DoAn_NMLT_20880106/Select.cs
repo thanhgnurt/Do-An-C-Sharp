@@ -28,7 +28,10 @@ namespace DoAn_NMLT_20880106
                     AddLH.ThemLoaiHang(ref ArrayLH, ref ArrayHH);
                     return;
                 case 5:
-                    EditLH.SuaLoaiHang(ref ArrayLH, ref ArrayHH);
+                    EditLH.SuaLoaiHang(ref ArrayLH, ref ArrayHH, 0);
+                    return;
+                case 6:
+                    DeleteLH.XoaLoaiHang(ref ArrayLH, ref ArrayHH, 0);
                     return;
             }
 

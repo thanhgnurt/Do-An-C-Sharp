@@ -14,7 +14,7 @@ namespace DoAn_NMLT_20880106
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.CursorTop = top * 4 - 2;
             Console.CursorLeft = 1;
-            Console.WriteLine("Hãy nhập hạn sử dụng:");
+            Console.WriteLine("Hạn sử dụng:");
             Console.CursorTop = top * 4-1 ;
             Console.CursorLeft = 2;
             Console.WriteLine("Ngày:");
@@ -28,7 +28,7 @@ namespace DoAn_NMLT_20880106
             Console.WriteLine("             ");
             Console.CursorTop = top * 4;
             Console.CursorLeft = 9;
-            ngay = NhapInt(ngay, "Ngày", 14, 9);
+            ngay = NhapInt(ngay, "Ngày", 12, 9);
             Console.CursorTop = top * 4-1;
             Console.CursorLeft = 24;
             Console.BackgroundColor = ConsoleColor.Gray;
@@ -43,7 +43,7 @@ namespace DoAn_NMLT_20880106
             Console.WriteLine("              ");
             Console.CursorTop = top * 4;
             Console.CursorLeft = 32;
-            thang = NhapInt(thang, "Tháng", 14, 32);
+            thang = NhapInt(thang, "Tháng", 12, 32);
             Console.CursorTop = top * 4-1;
             Console.CursorLeft = 49;
             Console.BackgroundColor = ConsoleColor.Gray;
@@ -58,7 +58,7 @@ namespace DoAn_NMLT_20880106
             Console.WriteLine("              ");
             Console.CursorTop = top * 4;
             Console.CursorLeft = 55;
-            nam = NhapInt(nam,"Năm", 14, 55);
+            nam = NhapInt(nam,"Năm", 12, 55);
 
 
         }
@@ -70,34 +70,33 @@ namespace DoAn_NMLT_20880106
             {
                 try
                 {
-
-                    if (flag==1)
-                    {
-                       
-                        Console.BackgroundColor = ConsoleColor.White;
-                    }
-                    if (flag == 2)
-                    {
-
-                        Console.BackgroundColor = ConsoleColor.Magenta;
-                    }
-                    if (flag == 3)
-                    {
-
-                        Console.BackgroundColor = ConsoleColor.Cyan;
-                    }
+                    Console.BackgroundColor = ConsoleColor.White;
                     intBN = int.Parse(Console.ReadLine());
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.CursorLeft = 0;
+                    Console.CursorTop = 27;
+                    Console.Write("                                                         ");
                     return intBN;
-                  
                 }
                 catch
                 {
+                    Console.CursorTop = top;
+                    Console.CursorLeft = left;
+                    if (left > 5)
+                    {
+                        Console.Write("         ");
+                    }
+                    else
+                    {
+                        Console.Write("                               ");
+                    }
                     if (flag == 3)
                     {
                         flag = 0;
                     }
                     flag++;
-                    Console.CursorTop = top ;
+                    Console.CursorLeft = 0;
+                    Console.CursorTop = 27;
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.Write("  ");
                     Console.CursorLeft = 2;
@@ -105,14 +104,12 @@ namespace DoAn_NMLT_20880106
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.Write(" Bạn nhập sai định dạng ");
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
-                    Console.Write(" {0} ",DoiTuong);
+                    Console.Write(" {0} ", DoiTuong);
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.Write(" vui lòng nhập số!     ");
-                    //Console.BackgroundColor = ConsoleColor.Black;
-                    //Console.Write("     ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.CursorTop = top - 2;
+                    Console.CursorTop = top;
                     Console.CursorLeft = left;
 
                 }
@@ -188,9 +185,9 @@ namespace DoAn_NMLT_20880106
             Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("--------------*");
             Struct.HOANGHOA SP;
-            InputHH(1, 2, "Hãy nhập mã mặt hàng:");
+            InputHH(1, 2, "Mã hàng hóa:");
             SP.MaHH = Console.ReadLine();
-            InputHH(2, 2, "Hãy nhập tên hàng hóa");
+            InputHH(2, 2, "Tên hàng hóa:");
             SP.TenHH = Console.ReadLine();
             int ngay=0, thang=0, nam=0;
             NhapNgayThangNam(ref ngay, ref thang, ref nam, 3, 1);
@@ -199,13 +196,13 @@ namespace DoAn_NMLT_20880106
             SP.HanDung.Thang = thang;
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
-            InputHH(4, 2, "Hãy nhập công ty sản xuất:                                           ");
+            InputHH(4, 2, "Công ty sản xuất:                               ");
             SP.CtySX = Console.ReadLine();
-            InputHH(5, 1, "Hay nhập năm xản xuât");
+            InputHH(5, 1, "Năm xản xuât");
             int namSX = 0;
             Console.CursorLeft = 2;
-            SP.NamSX = NhapInt(namSX, "Năm Sản Xuất", 22, 2);
-            InputHH(6, 2, "Hãy nhập loại hàng hóa:                                              ");
+            SP.NamSX = NhapInt(namSX, "Năm Sản Xuất", 20, 2);
+            Add.InputHH(6, 2, "Loại hàng hóa:      ");
             SP.LoaiHang = Console.ReadLine(); 
             Console.CursorTop = 27;
             Console.BackgroundColor = ConsoleColor.Gray;

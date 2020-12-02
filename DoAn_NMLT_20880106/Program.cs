@@ -61,7 +61,7 @@ namespace DoAn_NMLT_20880106
 
         }
 
-        static ArrayList DuLieuMauLoaiHang()
+        public static ArrayList DuLieuMauLoaiHang()
         {
             ArrayList ArrayLH = new ArrayList();
             Struct.LOAIHANG lh1, lh2, lh3, lh4;
@@ -91,18 +91,21 @@ namespace DoAn_NMLT_20880106
         }
 
 
-
-
-
-        //----------------------------------------------Main------------------------------------
-        static void Main(string[] args)
-        {
+        public static void AppMain() {
             ArrayList ArrayHH = DuLieuMauHangHoa();
             ArrayList ArrayLH = DuLieuMauLoaiHang();
             Console.OutputEncoding = Encoding.Unicode;
             Console.InputEncoding = Encoding.Unicode;
             Tittle.TieuDe();
-            Select.LuaChonChinh(ref ArrayHH,ref ArrayLH, 0);
+            Select.LuaChonChinh(ref ArrayHH, ref ArrayLH, 0);
+        }
+
+
+
+        //----------------------------------------------Main------------------------------------
+        public static void Main(string[] args)
+        {
+            AppMain();
 
         }
     }

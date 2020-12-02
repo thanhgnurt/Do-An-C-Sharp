@@ -154,8 +154,19 @@ namespace DoAn_NMLT_20880106
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             Console.CursorTop = 0;
-            Console.CursorLeft = 36;
-            Console.WriteLine(" Nhấn ESC để về màn hình chính! ");
+            Console.CursorLeft = 20;
+            Console.WriteLine("Lựa chọn [UP/DOWN]");
+            Console.CursorTop = 0;
+            Console.CursorLeft = 40;
+            Console.WriteLine("Select [ENTER]");
+            Console.CursorTop = 0;
+            Console.CursorLeft = 58;
+            Console.WriteLine("Home [ESC]");
+            Console.CursorTop = 27;
+            Console.CursorLeft = 0;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.WriteLine(" Crt + S để lưu lại.");
             FormEditItem(selected, item);
             while (true)
             {
@@ -164,7 +175,7 @@ namespace DoAn_NMLT_20880106
                 if ((input.Modifiers & ConsoleModifiers.Control) != 0 && input.Key == ConsoleKey.S)
                 {
                     bool flagSave;
-                    flagSave = Form.FormXacNhan(10, 40, 5, 40, ChucNang, ref ArrayHH);
+                    flagSave = Form.FormXacNhan(10, 40, 5, 40, ChucNang);
                     if (flagSave)
                     {
                         ArrayHH.RemoveAt(index);
@@ -173,8 +184,14 @@ namespace DoAn_NMLT_20880106
                         Edit.SuaHangHoa(ref ArrayHH, ref ArrayLH);
                         return;
 
+                    } else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.BackgroundColor = ConsoleColor.Gray;
+                        Console.Clear();
 
-                    } 
+                        SuaHH(ref ArrayHH, ref ArrayLH, ChucNang, index, selected);
+                    }
                 }
                 switch (input.Key)
                 {
@@ -478,13 +495,13 @@ namespace DoAn_NMLT_20880106
                 try
                 {
 
-                    
 
                     Console.BackgroundColor = ConsoleColor.White;
-                    
-                 
-                  
                     intBN = int.Parse(Console.ReadLine());
+                    Console.CursorLeft = 0;
+                    Console.CursorTop = 27;
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.Write("                                                        ");
                     return intBN;
 
                 }

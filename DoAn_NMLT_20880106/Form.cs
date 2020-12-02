@@ -79,13 +79,13 @@ namespace DoAn_NMLT_20880106
         }
 
 
-        public static void FormLoaiHang()
+        public static void FormLoaiHang(string Tittle)
         {
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             Console.CursorTop = 0;
             Console.CursorLeft = 0;
-            Console.WriteLine("THÊM LOẠI HÀNG |");
+            Console.WriteLine("{0} |", Tittle);
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("--------------*");
@@ -131,7 +131,7 @@ namespace DoAn_NMLT_20880106
             Console.CursorLeft = cot + left - 15;
             Console.Write("          ");
         }
-        public static bool FormXacNhan(int hang, int cot, int top, int left, string ChucNang,ref ArrayList Arr)
+        public static bool FormXacNhan(int hang, int cot, int top, int left, string ChucNang)
         {
 
             Console.BackgroundColor = ConsoleColor.Black;
@@ -201,7 +201,9 @@ namespace DoAn_NMLT_20880106
                         break;
                     case ConsoleKey.Enter:
                         return flag;
-
+                    case ConsoleKey.Escape:
+                        Program.AppMain();
+                        return false;
                 }
             }
 

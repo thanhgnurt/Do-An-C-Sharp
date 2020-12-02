@@ -131,7 +131,7 @@ namespace DoAn_NMLT_20880106
                     switch (ChucNang)
                     {
                         case "Delete HH":
-                            Delete.XoaHH(ref ArrayHH, ChucNang, select);
+                            Delete.XoaHH(ref ArrayHH,ref ArrayLH, ChucNang, select);
                             return;
                         case "Edit HH":
                             Console.Clear();
@@ -142,10 +142,14 @@ namespace DoAn_NMLT_20880106
                     return;
                 case ConsoleKey.Escape:
                     Tittle.TieuDe();
-                    int index = 1;
+                    int index = 0;
                     if (ChucNang == "Delete HH")
                     {
                         index = 2;
+                    }
+                    if (ChucNang == "Edit HH")
+                    {
+                        index = 1;
                     }
                     Select.LuaChonChinh(ref ArrayHH, ref ArrayLH, index);
                     break;
@@ -155,7 +159,7 @@ namespace DoAn_NMLT_20880106
             }
         }
         //
-        static void inputSeclectLH(ref ArrayList ArrayHH, ref ArrayList ArrayLH, int stt, int select, string ChucNang)
+        static void inputSeclectLH(ref ArrayList ArrayLH, ref ArrayList ArrayHH, int stt, int select, string ChucNang)
         {
             ConsoleKeyInfo input;
             input = Console.ReadKey(true);
@@ -170,54 +174,57 @@ namespace DoAn_NMLT_20880106
                     if (select == 0)
                     {
 
-                        HienThiLH(ArrayHH, stt, select, top);
-                        inputSeclectLH(ref ArrayHH, ref ArrayLH, stt, select, ChucNang);
+                        HienThiLH(ArrayLH, stt, select, top);
+                        inputSeclectLH(ref ArrayLH, ref ArrayHH, stt, select, ChucNang);
                     }
                     else
                     {
                         select--;
-                        HienThiLH(ArrayHH, stt, select, top);
-                        inputSeclectLH(ref ArrayHH, ref ArrayLH, stt, select, ChucNang);
+                        HienThiLH(ArrayLH, stt, select, top);
+                        inputSeclectLH(ref ArrayLH, ref ArrayHH, stt, select, ChucNang);
                     }
                     return;
                 case ConsoleKey.DownArrow:
-                    if (select == ArrayHH.Count - 1)
+                    if (select == ArrayLH.Count - 1)
                     {
-                        HienThiLH(ArrayHH, stt, select, top);
-                        inputSeclectLH(ref ArrayHH, ref ArrayLH, stt, select, ChucNang);
+                        HienThiLH(ArrayLH, stt, select, top);
+                        inputSeclectLH(ref ArrayLH, ref ArrayHH, stt, select, ChucNang);
 
                     }
                     else
                     {
                         select++;
-                        HienThiLH(ArrayHH, stt, select, top);
-                        inputSeclectLH(ref ArrayHH, ref ArrayLH, stt, select, ChucNang);
+                        HienThiLH(ArrayLH, stt, select, top);
+                        inputSeclectLH(ref ArrayLH, ref ArrayHH, stt, select, ChucNang);
                     }
                     return;
                 case ConsoleKey.Enter:
                     switch (ChucNang)
                     {
-                        case "Delete HH":
-                            Delete.XoaHH(ref ArrayHH, ChucNang, select);
+                        case "Delete LH":
+                            DeleteLH.XoaLH(ref ArrayLH, ref ArrayHH ,ChucNang, select, 0);
                             return;
-                        case "Edit HH":
+                        case "Edit LH":
                             Console.Clear();
-
-                            Edit.SuaHH(ref ArrayHH, ref ArrayLH, ChucNang, select, 1);
+                            EditLH.SuaLH(ref ArrayLH, ref ArrayHH, ChucNang, select, 1);
                             return;
                     }
                     return;
                 case ConsoleKey.Escape:
                     Tittle.TieuDe();
                     int index = 1;
-                    if (ChucNang == "Delete HH")
+                    if (ChucNang == "Delete LH")
                     {
-                        index = 2;
+                        index = 6;
+                    }
+                    if (ChucNang == "Edit LH")
+                    {
+                        index = 5;
                     }
                     Select.LuaChonChinh(ref ArrayHH, ref ArrayLH, index);
                     break;
                 default:
-                    inputSeclectLH(ref ArrayHH, ref ArrayLH, stt, select, ChucNang);
+                    inputSeclectLH(ref ArrayLH, ref ArrayHH, stt, select, ChucNang);
                     break;
             }
         }
@@ -267,7 +274,7 @@ namespace DoAn_NMLT_20880106
                     switch (ChucNang)
                     {
                         case "Delete HH":
-                            Delete.XoaHH(ref ArrayHH, ChucNang, select);
+                            Delete.XoaHH(ref ArrayHH,ref ArrayLH, ChucNang, select);
                             return;
                         case "Edit HH":
                             Console.Clear();
@@ -313,12 +320,11 @@ namespace DoAn_NMLT_20880106
 
         }
         //
-        public static void HienThiLoaiHang(ref ArrayList ArrayHH, ref ArrayList ArrayLH, string ChucNang)
+        public static void HienThiLoaiHang(ref ArrayList ArrayLH, ref ArrayList ArrayHH, string ChucNang, int index)
         {
             // Struct.HOANGHOA hh = (Struct.HOANGHOA)ArrayHH[1];
 
             int stt = 1;
-            int select = 0;
             Console.CursorTop = 0;
             Console.CursorLeft = 0;
             Console.ForegroundColor = ConsoleColor.White;
@@ -331,8 +337,8 @@ namespace DoAn_NMLT_20880106
             Console.WriteLine(" " + ChucNang + " ");
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.Gray;
-            HienThiLH(ArrayHH, stt, select, 0);
-            inputSeclectLH(ref ArrayHH, ref ArrayLH, stt, select, ChucNang);
+            HienThiLH(ArrayLH, stt, index, 0);
+            inputSeclectLH(ref ArrayLH, ref ArrayHH, stt, index, ChucNang);
 
         }
 
