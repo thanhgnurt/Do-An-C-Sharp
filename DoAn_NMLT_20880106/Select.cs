@@ -33,6 +33,9 @@ namespace DoAn_NMLT_20880106
                 case 6:
                     DeleteLH.XoaLoaiHang(ref ArrayLH, ref ArrayHH, 0);
                     return;
+                case 7:
+                    FindLH.TimKiemLoaiHang(ArrayLH, ArrayHH);
+                    return;
             }
 
         }
@@ -148,7 +151,7 @@ namespace DoAn_NMLT_20880106
             string SuaLoaiHang = " Sửa Loại Hàng     |";
             string XoaLoaiHang = " Xóa Loại Hàng     |";
             string TimKiemLoaiHang = " Tìm Kiếm Loại Hàng|";
-            string KhoHang = " Kho Hàng Hóa      |";
+            string KhoHang = " Caculator         |";
             string Game = " Game              |";
             string About = " About             |";
             string Thoat = " Thoat(ESC)        |";

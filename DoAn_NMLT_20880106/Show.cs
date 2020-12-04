@@ -52,7 +52,7 @@ namespace DoAn_NMLT_20880106
 
         }
         //
-        static void HienThi(ArrayList ArrayHH, int stt, int select, int top)
+        public static void HienThi(ArrayList ArrayHH, int stt, int select, int top)
         {
             
             int SoLuongHH = ArrayHH.Count;
@@ -70,7 +70,7 @@ namespace DoAn_NMLT_20880106
 
         }
         //
-        static void HienThiLH(ArrayList ArrayLH, int stt, int select, int top)
+        public static void HienThiLH(ArrayList ArrayLH, int stt, int select, int top)
         {
 
             int SoLuongHH = ArrayLH.Count;
@@ -93,7 +93,7 @@ namespace DoAn_NMLT_20880106
             ConsoleKeyInfo input;
             input = Console.ReadKey(true);
             int top = 0;
-            if (ChucNang == "Find")
+            if (ChucNang == "Find HH")
             {
                 top = 6;
             }
@@ -135,9 +135,11 @@ namespace DoAn_NMLT_20880106
                             return;
                         case "Edit HH":
                             Console.Clear();
-                            
                             Edit.SuaHH(ref ArrayHH, ref ArrayLH, ChucNang, select, 1);
                             return;
+                       // case "Find HH":
+                          //  Form.FormCommonFind("Hang hoa");
+                          //  return;
                     }
                     return;
                 case ConsoleKey.Escape:
@@ -159,12 +161,12 @@ namespace DoAn_NMLT_20880106
             }
         }
         //
-        static void inputSeclectLH(ref ArrayList ArrayLH, ref ArrayList ArrayHH, int stt, int select, string ChucNang)
+        public static void inputSeclectLH(ref ArrayList ArrayLH, ref ArrayList ArrayHH, int stt, int select, string ChucNang)
         {
             ConsoleKeyInfo input;
             input = Console.ReadKey(true);
             int top = 0;
-            if (ChucNang == "Find")
+            if (ChucNang == "Find LH")
             {
                 top = 6;
             }
@@ -208,6 +210,9 @@ namespace DoAn_NMLT_20880106
                             Console.Clear();
                             EditLH.SuaLH(ref ArrayLH, ref ArrayHH, ChucNang, select, 1);
                             return;
+                        case "Find LH":
+                            Form.FormCommonFind("Loại Hàng", select);
+                            return;
                     }
                     return;
                 case ConsoleKey.Escape:
@@ -230,70 +235,78 @@ namespace DoAn_NMLT_20880106
         }
 
         //
-        static void inputSeclectFind(ArrayList ArrayHH,ArrayList ArrayLH, int stt, int select, string ChucNang)
+        public static void inputSeclectFind(ArrayList ArrayHH,ArrayList ArrayLH, int stt, int select, string ChucNang)
         {
             
             ConsoleKeyInfo input;
-            input = Console.ReadKey(true);
             int top = 0;
-            if (ChucNang == "Find")
+            if (ChucNang == "Find HH" || ChucNang=="Find LH"|| ChucNang=="Find")
             {
                 top = 6;
             }
-            switch (input.Key)
+            while (true)
             {
-                case ConsoleKey.UpArrow:
-                    if (select == 0)
+                    input = Console.ReadKey(true);
+                    switch (input.Key)
                     {
+                    case ConsoleKey.UpArrow:
+                        if (select == 0)
+                        {
 
-                        HienThi(ArrayHH, stt, select, top);
-                        inputSeclect(ref ArrayHH, ref ArrayLH, stt, select, ChucNang);
-                    }
-                    else
-                    {
-                        select--;
-                        HienThi(ArrayHH, stt, select, top);
-                        inputSeclect(ref ArrayHH, ref ArrayLH, stt, select, ChucNang);
-                    }
-                    return;
-                case ConsoleKey.DownArrow:
-                    if (select == ArrayHH.Count - 1)
-                    {
-                        HienThi(ArrayHH, stt, select, top);
-                        inputSeclect(ref ArrayHH, ref ArrayLH, stt, select, ChucNang);
+                            HienThi(ArrayHH, stt, select, top);break;
+                            
+                        }
+                        else
+                        {
+                            select--;
+                            HienThi(ArrayHH, stt, select, top);break;
+                           
+                        }
+                  
+                    case ConsoleKey.DownArrow:
+                        if (select == ArrayHH.Count - 1)
+                        {
+                            HienThi(ArrayHH, stt, select, top);break;
+                            
 
-                    }
-                    else
-                    {
-                        select++;
-                        HienThi(ArrayHH, stt, select, top);
+                        }
+                        else
+                        {
+                            select++;
+                            HienThi(ArrayHH, stt, select, top);break;
+                          
+                        }
+                  
+                    case ConsoleKey.Enter:
+                        switch (ChucNang)
+                        {
+                            case "Delete HH":
+                                Delete.XoaHH(ref ArrayHH,ref ArrayLH, ChucNang, select);
+                                return;
+                            case "Edit HH":
+                                Console.Clear();
+                                Edit.SuaHH(ref ArrayHH, ref ArrayLH, ChucNang, select, 1);
+                                return;
+                            case "Find HH":
+                                Form.FormCommonFind("Hàng Hóa", select);
+                                return;
+                            case "Find LH":
+                                return;
+                        }
+                        return;
+                    case ConsoleKey.Escape:
+                        Tittle.TieuDe();
+                        ArrayHH = Program.DuLieuMauHangHoa();
+                        ArrayLH = Program.DuLieuMauLoaiHang();
+                        Select.LuaChonChinh(ref ArrayHH, ref ArrayLH, 3);
+                        break;
+                    default:
                         inputSeclect(ref ArrayHH, ref ArrayLH, stt, select, ChucNang);
+                        break;
                     }
-                    return;
-                case ConsoleKey.Enter:
-                    switch (ChucNang)
-                    {
-                        case "Delete HH":
-                            Delete.XoaHH(ref ArrayHH,ref ArrayLH, ChucNang, select);
-                            return;
-                        case "Edit HH":
-                            Console.Clear();
-                            Edit.SuaHH(ref ArrayHH, ref ArrayLH, ChucNang, select, 1);
-                            return;
-                        case "Find":
-                            HienThi(ArrayHH, stt, select, top);
-                            return;
-                    }
-                    return;
-                case ConsoleKey.Escape:
-                    Tittle.TieuDe();
-                    ArrayHH = Program.DuLieuMauHangHoa();
-                    Select.LuaChonChinh(ref ArrayHH, ref ArrayLH, 3);
-                    break;
-                default:
-                    inputSeclect(ref ArrayHH, ref ArrayLH, stt, select, ChucNang);
-                    break;
+
             }
+
         }
         //
 
@@ -342,29 +355,6 @@ namespace DoAn_NMLT_20880106
 
         }
 
-        public static void HienThiHangHoaTimKiem(ArrayList ArrayHH,ArrayList ArrayLH, string ChucNang)
-        {
-            // Struct.HOANGHOA hh = (Struct.HOANGHOA)ArrayHH[1];
-
-            int top = 6;
-            int stt = 1;
-            int select = 0;
-            Console.CursorTop = 6;
-            Console.CursorLeft = 0;
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write("  ");
-            Console.CursorTop = 6;
-            Console.CursorLeft = 2;
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.WriteLine("                      " + ChucNang + "                          ");
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.BackgroundColor = ConsoleColor.Gray;
-            HienThi(ArrayHH, stt, select, top);
-            inputSeclectFind(ArrayHH, ArrayLH, stt, select, "Find");
-
-
-        }
+    
     }
 }
