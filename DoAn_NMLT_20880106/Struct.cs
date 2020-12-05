@@ -31,5 +31,11 @@ namespace DoAn_NMLT_20880106
             public string MotaLH;
         }
 
+        public struct DIEM
+        {
+            public int x;
+            public int y;
+        }
+
     }
 }

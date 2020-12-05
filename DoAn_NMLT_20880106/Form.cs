@@ -382,7 +382,6 @@ namespace DoAn_NMLT_20880106
         // thuộc tính trong tim kiem
         public static void Arch_HH(int flag)
         {
-            int hang = 10;
             int cot = 25;
             int left = 40;
             int top = 5;

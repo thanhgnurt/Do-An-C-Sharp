@@ -36,6 +36,9 @@ namespace DoAn_NMLT_20880106
                 case 7:
                     FindLH.TimKiemLoaiHang(ArrayLH, ArrayHH);
                     return;
+                case 9:
+                    MiniGame.KhungGame();
+                    return;
             }
 
         }
