@@ -36,6 +36,9 @@ namespace DoAn_NMLT_20880106
                 case 7:
                     FindLH.TimKiemLoaiHang(ArrayLH, ArrayHH);
                     return;
+                case 8:
+                    Caculator.PageMainCacu();
+                    return;
                 case 9:
                     MiniGame.KhungGame();
                     return;
@@ -81,7 +84,7 @@ namespace DoAn_NMLT_20880106
                 if (luaChon == i)
                 {
                     Console.CursorLeft = left;
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
+                    Console.BackgroundColor = ConsoleColor.White;
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.CursorLeft = left;
                     Console.WriteLine("                   |");
@@ -101,7 +104,7 @@ namespace DoAn_NMLT_20880106
                     Console.Write("                ");
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.WriteLine("   |");
-                    Console.BackgroundColor = ConsoleColor.DarkYellow;
+                    Console.BackgroundColor = ConsoleColor.White;
                     Console.CursorLeft = left;
                     Console.WriteLine("___________________|");
                     Console.BackgroundColor = ConsoleColor.Blue;
@@ -145,7 +148,7 @@ namespace DoAn_NMLT_20880106
         }
         public static void LuaChonChinh(ref ArrayList ArrayHH, ref ArrayList ArrayLH, int select)
         {
-           
+            
             string ThemHangHoa = " Thêm hàng hóa     |";
             string SuaHangHoa = " Sửa hàng hóa      |";
             string XoaHangHoa = " Xóa hàng hóa      |";
@@ -219,9 +222,8 @@ namespace DoAn_NMLT_20880106
                     return;
                 case ConsoleKey.Enter:
                     Console.BackgroundColor = ConsoleColor.Gray;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                            
-                   Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Black;      
+                    Console.Clear();
                     DieuHuong(select, ref ArrayHH, ref ArrayLH);
                     return;
                 case ConsoleKey.Escape:

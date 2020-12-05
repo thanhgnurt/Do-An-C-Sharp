@@ -15,9 +15,17 @@ namespace DoAn_NMLT_20880106
             //---back main
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.DarkYellow;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
+            Console.CursorTop = 0;
+            Console.CursorLeft = 18;
+            Console.WriteLine(" Lựa chọn [UP/DOWN] ");
             Console.CursorTop = 0;
             Console.CursorLeft = 40;
-            Console.WriteLine(" Nhấn ESC để về màn hình chính! ");
+            Console.WriteLine(" Select [ENTER] ");
+            Console.CursorTop = 0;
+            Console.CursorLeft = 58;
+            Console.WriteLine(" Home [ESC] ");
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.Gray;
             if (ArrayHH.Count == 0)
@@ -154,14 +162,14 @@ namespace DoAn_NMLT_20880106
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             Console.CursorTop = 0;
-            Console.CursorLeft = 20;
-            Console.WriteLine("Lựa chọn [UP/DOWN]");
+            Console.CursorLeft = 18;
+            Console.WriteLine(" Lựa chọn [UP/DOWN] ");
             Console.CursorTop = 0;
             Console.CursorLeft = 40;
-            Console.WriteLine("Select [ENTER]");
+            Console.WriteLine(" Select [ENTER] ");
             Console.CursorTop = 0;
             Console.CursorLeft = 58;
-            Console.WriteLine("Home [ESC]");
+            Console.WriteLine(" Home [ESC] ");
             Console.CursorTop = 27;
             Console.CursorLeft = 0;
             Console.ForegroundColor = ConsoleColor.White;
@@ -513,7 +521,7 @@ namespace DoAn_NMLT_20880106
                         Console.Write("         ");
                     } else
                     {
-                        Console.Write("                               ");
+                        Console.Write("                                                       ");
                     }
                     if (flag == 3)
                     {

@@ -71,10 +71,15 @@ namespace DoAn_NMLT_20880106
             int stt = 1;
             int select = 0;
             Console.CursorTop = 0;
-            Console.CursorLeft = 25;
+            Console.CursorLeft = 38;
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
-            Console.Write("Sửa/Xóa [ENTER]");
+            Console.Write(" Sửa/Xóa [ENTER] ");
+            Console.CursorTop = 0;
+            Console.CursorLeft = 56;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Write(" Home [ESC] ");
             Console.CursorTop = 6;
             Console.CursorLeft = 0;
             Console.ForegroundColor = ConsoleColor.White;
