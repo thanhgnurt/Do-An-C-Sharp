@@ -6,9 +6,121 @@ namespace DoAn_NMLT_20880106
 {
     public class MiniGame
     {
- 
+        //--select level game
+        public static void SelectLevelGame()
+        {
+            Console.CursorVisible = false;
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Clear();
+            Console.CursorTop = 0;
+            Console.CursorLeft = 2;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Write(" Select [ENTER] ");
+            Console.CursorTop = 0;
+            Console.CursorLeft = 20;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Write(" Home [ESC] ");
+            Console.CursorTop = 4; 
+            Console.CursorLeft = 50;
+            Console.WriteLine("GAME SNAKE");
+            Console.CursorTop = 5;
+            Console.CursorLeft = 50;
+            Console.WriteLine("_____________________");
+
+            int selectLevel = 1;
+            bool loop = true;
+            string[] level = new string[10];
+            for (int i = 0; i<10; i++)
+            {
+                level[i] = "Level " + (i+1);
+            }
+            for(int i = 0; i< level.Length; i++)
+            {
+                if(i == selectLevel - 1)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                Console.CursorTop = 7+i;
+                Console.CursorLeft = 50;
+                Console.WriteLine(level[i]);
+            }
+           
+            while (loop)
+            {
+
+
+                ConsoleKeyInfo input;
+                input = Console.ReadKey(true);
+                switch (input.Key)
+                {
+                    case ConsoleKey.Escape:
+                        selectLevel = -1;
+                        loop = false;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.CursorTop = 6 + selectLevel;
+                        Console.CursorLeft = 50;
+                        Console.WriteLine(level[selectLevel - 1]);
+                        if (selectLevel == 1)
+                        {
+                            selectLevel = 10;
+                        } else
+                        {
+                            selectLevel--;
+                        }
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.CursorTop = 6 + selectLevel;
+                        Console.CursorLeft = 50;
+                        Console.WriteLine(level[selectLevel-1]);
+                        break;
+                    case ConsoleKey.DownArrow:
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.CursorTop = 6 + selectLevel;
+                        Console.CursorLeft = 50;
+                        Console.WriteLine(level[selectLevel - 1]);
+                        if (selectLevel == 10)
+                        {
+                            selectLevel = 1;
+                        }
+                        else
+                        {
+                            selectLevel++;
+                        }
+
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.CursorTop = 6 + selectLevel;
+                        Console.CursorLeft = 50;
+                        Console.WriteLine(level[selectLevel - 1]);
+                        
+                        break;
+                    case ConsoleKey.Enter:
+                        loop = false;
+                        break;
+
+                }
+            }
+            if (selectLevel == -1)
+            {
+                Program.AppMain();
+            }
+            if (selectLevel>0)
+            {
+                KhungGame(selectLevel);
+            }
+
+
+        }
+
         //khung game
-        public static void KhungGame()
+        public static void KhungGame(int level)
         {
             Console.CursorVisible = false;
             Console.BackgroundColor = ConsoleColor.Red;
@@ -33,7 +145,7 @@ namespace DoAn_NMLT_20880106
             Console.BackgroundColor = ConsoleColor.White;
             Console.SetCursorPosition(20, 3);
             Console.WriteLine("   0   ");
-            for (int i =TopLeft.y; i<= BottomLeft.y; i++)
+            for (int i = TopLeft.y; i<= BottomLeft.y; i++)
             {
                 
                 
@@ -48,8 +160,7 @@ namespace DoAn_NMLT_20880106
 
 
             }
-            SnakePaint();
-            Console.Read();
+            SnakePaint(level);
 
         }
         //Check Collision
@@ -79,7 +190,7 @@ namespace DoAn_NMLT_20880106
             Console.Write("$");
         }
         // --- snake paint---
-        static void SnakePaint()
+        static void SnakePaint(int level)
         {
             Struct.DIEM randomPoint;
             int score = 0;
@@ -88,28 +199,28 @@ namespace DoAn_NMLT_20880106
             bool checkEat = true;
             List<Struct.DIEM> Snake = new List<Struct.DIEM>();
             Struct.DIEM Diem1;
-            Diem1.x = 45;
+            Diem1.x = 65;
             Diem1.y = 13;
             Struct.DIEM Diem2;
-            Diem2.x = 45;
+            Diem2.x = 65;
             Diem2.y = 14;
             Struct.DIEM Diem3;
-            Diem3.x = 45;
+            Diem3.x = 65;
             Diem3.y = 15;
             Struct.DIEM Diem4;
-            Diem4.x = 45;
+            Diem4.x = 65;
             Diem4.y = 16;
             Struct.DIEM Diem5;
-            Diem5.x = 45;
+            Diem5.x = 65;
             Diem5.y = 17;
             Struct.DIEM Diem6;
-            Diem6.x = 45;
+            Diem6.x = 65;
             Diem6.y = 18;
             Struct.DIEM Diem7;
-            Diem7.x = 45;
+            Diem7.x = 65;
             Diem7.y = 19;
             Struct.DIEM Diem8;
-            Diem8.x = 45;
+            Diem8.x = 65;
             Diem8.y = 20;
             Snake.Add(Diem1);
             Snake.Add(Diem2);
@@ -130,17 +241,50 @@ namespace DoAn_NMLT_20880106
 
             while (true)
             {
-                DirectionSnake = ControlSnake(Snake, DirectionSnake,ref randomPoint, ref checkEat, ref score);
+                DirectionSnake = ControlSnake(level,Snake, DirectionSnake,ref randomPoint, ref checkEat, ref score);
                 if (DirectionSnake == "GAMEOVER")
                 {
                     break;
                 }
+                if (DirectionSnake == "Escape")
+                {
+                    SelectLevelGame();
+                }
             }
-            
+            Console.CursorTop = 8;
+            Console.CursorLeft = 50;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Write("Play again [ENTER]");
+            Console.CursorTop = 9;
+            Console.CursorLeft = 50;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Write("Home [ESC]");
+            while (true)
+            {
+                ConsoleKeyInfo input;
+                input = Console.ReadKey(true);
+                switch (input.Key)
+                {
+                    case ConsoleKey.Escape:
+                        Console.Clear();
+                        Program.AppMain();
+                        break;
+                    case ConsoleKey.Enter:
+                        Console.Clear();
+                        SelectLevelGame();
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
         }
 
         // control snake 
-        static string ControlSnake(List<Struct.DIEM> Snake, string DirectionSnake, ref Struct.DIEM randomPoint, ref bool checkEat, ref int score)
+        static string ControlSnake(int level,List<Struct.DIEM> Snake, string DirectionSnake, ref Struct.DIEM randomPoint, ref bool checkEat, ref int score)
         {
             Random randomXY = new Random();
             Struct.DIEM oldFood;
@@ -148,15 +292,15 @@ namespace DoAn_NMLT_20880106
             oldFood.y = 0;
             ConsoleKeyInfo input;
             var startTime = DateTime.UtcNow;
-            int LevelDiffcult = 200;
             int count = 1;
             bool check = true;
+            level = level * 25;
             int stage = randomXY.Next(6, 12);
             do
             {
                 while (!Console.KeyAvailable)
                 {
-                    if (DateTime.UtcNow - startTime > TimeSpan.FromMilliseconds(LevelDiffcult))
+                    if (DateTime.UtcNow - startTime > TimeSpan.FromMilliseconds(level))
                     {
                         Snake = MoveSnake(Snake, DirectionSnake, score);
                         if(Snake.Count == 0)
@@ -209,6 +353,11 @@ namespace DoAn_NMLT_20880106
                 if (input.Key.ToString() == DirectionSnake)
                 {
                     check = true;
+                }
+                if (input.Key == ConsoleKey.Escape)
+                {
+                    check = false;
+                    break;
                 }
                 switch (DirectionSnake)
                 {

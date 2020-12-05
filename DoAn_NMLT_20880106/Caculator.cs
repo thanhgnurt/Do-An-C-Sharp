@@ -14,6 +14,7 @@ namespace DoAn_NMLT_20880106
             Console.CursorTop = 7;
             Console.CursorLeft = 40;
             Console.WriteLine("Để thoát chon ESC");
+            
 
             while (true)
             {

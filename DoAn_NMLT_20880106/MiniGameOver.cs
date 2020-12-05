@@ -52,9 +52,16 @@ namespace DoAn_NMLT_20880106
         //Game over
         public static void GameOver(int score)
         {
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Clear();
+            Console.SetCursorPosition(50, 4);
             Console.WriteLine("GAME OVER");
+            Console.SetCursorPosition(50, 5);
             Console.WriteLine("Score: {0}", score);
+            Console.SetCursorPosition(50, 6);
+            Console.WriteLine("__________________");
+
         }
 
 

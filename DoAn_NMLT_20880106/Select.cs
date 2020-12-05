@@ -40,7 +40,7 @@ namespace DoAn_NMLT_20880106
                     Caculator.PageMainCacu();
                     return;
                 case 9:
-                    MiniGame.KhungGame();
+                    MiniGame.SelectLevelGame();
                     return;
             }
 
