@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DHTX-VB2\\Nhap-Mon-Lap-Trinh\\DoAn_NMLT_20880106\\DoAn_NMLT_20880106\\DoAn_NMLT_20880106.csproj",
+      "projectUniqueName": "D:\\DHTX-VB2\\Nhap-Mon-Lap-Trinh\\20880106\\DoAn_NMLT_20880106\\DoAn_NMLT_20880106.csproj",
       "projectName": "DoAn_NMLT_20880106",
-      "projectPath": "D:\\DHTX-VB2\\Nhap-Mon-Lap-Trinh\\DoAn_NMLT_20880106\\DoAn_NMLT_20880106\\DoAn_NMLT_20880106.csproj",
+      "projectPath": "D:\\DHTX-VB2\\Nhap-Mon-Lap-Trinh\\20880106\\DoAn_NMLT_20880106\\DoAn_NMLT_20880106.csproj",
       "packagesPath": "C:\\Users\\PumKin\\.nuget\\packages\\",
-      "outputPath": "D:\\DHTX-VB2\\Nhap-Mon-Lap-Trinh\\DoAn_NMLT_20880106\\DoAn_NMLT_20880106\\obj\\",
+      "outputPath": "D:\\DHTX-VB2\\Nhap-Mon-Lap-Trinh\\20880106\\DoAn_NMLT_20880106\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PumKin\\AppData\\Roaming\\NuGet\\NuGet.Config",

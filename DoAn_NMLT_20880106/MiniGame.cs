@@ -6,6 +6,11 @@ namespace DoAn_NMLT_20880106
 {
     public class MiniGame
     {
+        // countdown---
+        public static void CountDown()
+        {
+
+        }
         //--select level game
         public static void SelectLevelGame()
         {
@@ -160,22 +165,64 @@ namespace DoAn_NMLT_20880106
 
 
             }
-            SnakePaint(level);
+            //--countdown
+            var startTime = DateTime.UtcNow;
+            bool loop = true;
+            int count = 4;
+            while (loop)
+            {
+                if (DateTime.UtcNow - startTime > TimeSpan.FromMilliseconds(2500))
+                {
+                    loop = false;
+                }
+                if(DateTime.UtcNow - startTime > TimeSpan.FromMilliseconds(500* (5-count)))
+                {
+                    Console.CursorTop = 8;
+                    Console.CursorLeft = 65;
+                    if(count == 0)
+                    {
+                        Console.Write(" ");
+                    } else
+                    {
+
+                        Console.Write(count);
+                    }
+                    count--;
+                }
+
+
+
+            }
+            if (!loop)
+            {
+                SnakePaint(level);
+            }
+
+
+
 
         }
+
+
         //Check Collision
 
         // fragment snake
         static void FragmentSnake(Struct.DIEM point)
         {
             Console.SetCursorPosition(point.x, point.y);
-            Console.Write("X");
+            Console.Write("o");
+        }
+        //---eating
+        static void HeaderSnakeEatting(Struct.DIEM point)
+        {
+            Console.SetCursorPosition(point.x, point.y);
+            Console.Write("@");
         }
         //--Header snake
         static void HeaderSnake(Struct.DIEM point)
         {
             Console.SetCursorPosition(point.x, point.y);
-            Console.Write("O");
+            Console.Write("X");
         }
         //---Delete trailer snake
         static void DeleteTrailerSnake(Struct.DIEM point)
@@ -238,16 +285,17 @@ namespace DoAn_NMLT_20880106
             }
             
             string DirectionSnake = "UpArrow";
-
-            while (true)
+            bool loop = true;
+            while (loop)
             {
                 DirectionSnake = ControlSnake(level,Snake, DirectionSnake,ref randomPoint, ref checkEat, ref score);
                 if (DirectionSnake == "GAMEOVER")
                 {
-                    break;
+                    loop = false;
                 }
                 if (DirectionSnake == "Escape")
                 {
+                    loop = false;
                     SelectLevelGame();
                 }
             }
@@ -294,7 +342,7 @@ namespace DoAn_NMLT_20880106
             var startTime = DateTime.UtcNow;
             int count = 1;
             bool check = true;
-            level = level * 25;
+            level = (11-level) * 25;
             int stage = randomXY.Next(6, 12);
             do
             {
@@ -310,32 +358,50 @@ namespace DoAn_NMLT_20880106
                         startTime = DateTime.UtcNow;
                         count++;
                     }
-
-                    if(count == stage && checkEat==true)
+                   
+                    if (count == stage && checkEat==true)
                     {
                         randomPoint.x = randomXY.Next(40, 90);
                         randomPoint.y = randomXY.Next(2, 27);
                         checkEat = false;
-                        RandomPointPanit(randomPoint);
+                        if (randomPoint.x != 0)
+                        {
+                            RandomPointPanit(randomPoint);
+                        }
                         count = 1;
                     }
-                    if (MiniGameOver.CheckEat(Snake[0], randomPoint))
+                    if (!checkEat && count%9==0)
+                    {
+                        if(randomPoint.x != 0)
+                        {
+
+                            RandomPointPanit(randomPoint);
+                        }
+                    }
+
+                    if (MiniGameOver.CheckEat(Snake[0], randomPoint) && !checkEat)
                     {
 
                         oldFood.x = randomPoint.x;
                         oldFood.y = randomPoint.y;
                         checkEat = true;
                         Snake.Add(randomPoint);
-                        randomPoint.x = randomPoint.x-1;
-                        randomPoint.y = randomPoint.y-1;
                         score++;
                         Console.SetCursorPosition(23, 3);
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.Write(score);
+                        count = 1;
                     }
-                    if (checkEat && oldFood.x != 0)
+                    
+                    if (checkEat && randomPoint.x != 0)
                     {
-                        FragmentSnake(oldFood);
+                        if(randomPoint.x != 0)
+                        {
+                            //FragmentSnake(randomPoint);
+                            HeaderSnakeEatting(Snake[0]);
+                            FragmentSnake(Snake[1]);
+                        }
+
                     }
                   
                     
@@ -344,10 +410,18 @@ namespace DoAn_NMLT_20880106
                 input = Console.ReadKey(true);
                 if(input.Key == ConsoleKey.UpArrow || input.Key == ConsoleKey.LeftArrow)
                 {
+                    if (oldFood.x != 0)
+                    {
+                        FragmentSnake(oldFood);
+                    }
                     check = false;
                 }
                 if (input.Key == ConsoleKey.DownArrow || input.Key == ConsoleKey.RightArrow)
                 {
+                    if (oldFood.x != 0)
+                    {
+                        FragmentSnake(oldFood);
+                    }
                     check = false;
                 }
                 if (input.Key.ToString() == DirectionSnake)
@@ -362,25 +436,25 @@ namespace DoAn_NMLT_20880106
                 switch (DirectionSnake)
                 {
                     case "UpArrow":
-                        if (input.Key.ToString() == "DownArrow")
+                        if (input.Key.ToString() == "DownArrow" || input.Key.ToString()== "UpArrow")
                         {
                             check = true;
                         }
                         break;
                     case "DownArrow":
-                        if (input.Key.ToString() == "UpArrow")
+                        if (input.Key.ToString() == "UpArrow" || input.Key.ToString() == "DownArrow")
                         {
                             check = true;
                         }
                         break;
                     case "LeftArrow":
-                        if (input.Key.ToString() == "RightArrow")
+                        if (input.Key.ToString() == "RightArrow" || input.Key.ToString() == "LeftArrow")
                         {
                             check = true;
                         }
                         break;
                     case "RightArrow":
-                        if (input.Key.ToString() == "LeftArrow")
+                        if (input.Key.ToString() == "LeftArrow" || input.Key.ToString() == "RightArrow")
                         {
                             check = true;
                         }

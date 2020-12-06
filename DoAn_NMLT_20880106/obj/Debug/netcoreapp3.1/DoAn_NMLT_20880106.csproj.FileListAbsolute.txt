@@ -11,3 +11,16 @@ D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\DoAn_NMLT_20880106\DoAn_NMLT_20880106\obj\Debug\n
 D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\DoAn_NMLT_20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.pdb
 D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\DoAn_NMLT_20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.genruntimeconfig.cache
 D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\DoAn_NMLT_20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.csprojAssemblyReference.cache
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\bin\Debug\netcoreapp3.1\DoAn_NMLT_20880106.exe
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\bin\Debug\netcoreapp3.1\DoAn_NMLT_20880106.deps.json
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\bin\Debug\netcoreapp3.1\DoAn_NMLT_20880106.runtimeconfig.json
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\bin\Debug\netcoreapp3.1\DoAn_NMLT_20880106.runtimeconfig.dev.json
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\bin\Debug\netcoreapp3.1\DoAn_NMLT_20880106.dll
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\bin\Debug\netcoreapp3.1\DoAn_NMLT_20880106.pdb
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.csprojAssemblyReference.cache
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.AssemblyInfoInputs.cache
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.AssemblyInfo.cs
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.csproj.CoreCompileInputs.cache
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.dll
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.pdb
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.genruntimeconfig.cache
