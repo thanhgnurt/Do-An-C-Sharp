@@ -131,9 +131,11 @@ namespace DoAn_NMLT_20880106
                     switch (ChucNang)
                     {
                         case "Delete HH":
+                            Console.CursorVisible = false;
                             Delete.XoaHH(ref ArrayHH,ref ArrayLH, ChucNang, select);
                             return;
                         case "Edit HH":
+                            Console.CursorVisible = true;
                             Console.Clear();
                             Edit.SuaHH(ref ArrayHH, ref ArrayLH, ChucNang, select, 1);
                             return;
@@ -143,6 +145,7 @@ namespace DoAn_NMLT_20880106
                     }
                     return;
                 case ConsoleKey.Escape:
+                    Console.CursorVisible = false;
                     Tittle.TieuDe();
                     int index = 0;
                     if (ChucNang == "Delete HH")
@@ -204,9 +207,11 @@ namespace DoAn_NMLT_20880106
                     switch (ChucNang)
                     {
                         case "Delete LH":
+                            Console.CursorVisible = false;
                             DeleteLH.XoaLH(ref ArrayLH, ref ArrayHH ,ChucNang, select, 0);
                             return;
                         case "Edit LH":
+                            Console.CursorVisible = true;
                             Console.Clear();
                             EditLH.SuaLH(ref ArrayLH, ref ArrayHH, ChucNang, select, 1);
                             return;
@@ -216,6 +221,7 @@ namespace DoAn_NMLT_20880106
                     }
                     return;
                 case ConsoleKey.Escape:
+                    Console.CursorVisible = false;
                     Tittle.TieuDe();
                     int index = 1;
                     if (ChucNang == "Delete LH")
@@ -281,13 +287,16 @@ namespace DoAn_NMLT_20880106
                         switch (ChucNang)
                         {
                             case "Delete HH":
+                                Console.CursorVisible = false;
                                 Delete.XoaHH(ref ArrayHH,ref ArrayLH, ChucNang, select);
                                 return;
                             case "Edit HH":
+                                Console.CursorVisible = true;
                                 Console.Clear();
                                 Edit.SuaHH(ref ArrayHH, ref ArrayLH, ChucNang, select, 1);
                                 return;
                             case "Find HH":
+                                Console.CursorVisible = true;
                                 Form.FormCommonFind("Hàng Hóa", select);
                                 return;
                             case "Find LH":
@@ -295,6 +304,7 @@ namespace DoAn_NMLT_20880106
                         }
                         return;
                     case ConsoleKey.Escape:
+                        Console.CursorVisible = false;
                         Tittle.TieuDe();
                         ArrayHH = Program.DuLieuMauHangHoa();
                         ArrayLH = Program.DuLieuMauLoaiHang();

@@ -9,6 +9,7 @@ namespace DoAn_NMLT_20880106
     {
         public static void TimKiemLoaiHang(ArrayList ArrayLH, ArrayList ArrayHH)
         {
+            Console.CursorVisible = true;
             string keySearch = " ";
             ArrayList ArrayFind = new ArrayList();
             ArrayFind.Clear();
@@ -29,10 +30,12 @@ namespace DoAn_NMLT_20880106
             switch (input.Key)
             {
                 case ConsoleKey.Escape:
+                    Console.CursorVisible = false;
                     Tittle.TieuDe();
                     Select.LuaChonChinh(ref ArrayHH, ref ArrayLH, 0);
                     break;
                 case ConsoleKey.Enter:
+                    Console.CursorVisible = true;
                     Console.Clear();
                     TimKiemLoaiHang(ArrayHH, ArrayLH);
                     break;
@@ -135,18 +138,22 @@ namespace DoAn_NMLT_20880106
                     switch (ChucNang)
                     {
                         case "Delete LH":
+                            Console.CursorVisible = false;
                             Delete.XoaHH(ref ArrayLH, ref ArrayHH, ChucNang, select);
                             return;
                         case "Edit LH":
+                            Console.CursorVisible = true;
                             Console.Clear();
                             Edit.SuaHH(ref ArrayLH, ref ArrayHH, ChucNang, select, 1);
                             return;
                         case "Find LH":
+                            Console.CursorVisible = true;
                             Form.FormCommonFind("Loại Hàng", select);
                             return;
                     }
                     return;
                 case ConsoleKey.Escape:
+                    Console.CursorVisible = false;
                     Tittle.TieuDe();
                     ArrayHH = Program.DuLieuMauHangHoa();
                     ArrayLH = Program.DuLieuMauLoaiHang();

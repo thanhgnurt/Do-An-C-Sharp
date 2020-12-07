@@ -133,7 +133,7 @@ namespace DoAn_NMLT_20880106
         }
         public static bool FormXacNhan(int hang, int cot, int top, int left, string ChucNang)
         {
-
+            Console.CursorVisible = false;
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
             Console.Clear();
@@ -200,8 +200,11 @@ namespace DoAn_NMLT_20880106
                         YesNoSelected(cot, top, left, flag);
                         break;
                     case ConsoleKey.Enter:
+                        Console.CursorVisible = false;
                         return flag;
                     case ConsoleKey.Escape:
+                        Console.CursorVisible = false;
+                        Console.CursorVisible = false;
                         Program.AppMain();
                         return false;
                 }

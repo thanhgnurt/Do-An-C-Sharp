@@ -13,6 +13,7 @@ namespace DoAn_NMLT_20880106
         public static void SuaLoaiHang(ref ArrayList ArrayHH, ref ArrayList ArrayLH, int index)
         {
             //---back main
+            Console.CursorVisible = false;
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             Console.CursorTop = 0;
@@ -248,11 +249,13 @@ namespace DoAn_NMLT_20880106
                        BgSelectedItem(selected, ref item);
                         break;
                     case ConsoleKey.Enter:
+                        Console.CursorVisible = true;
                         item = EditItem(selected, ref item);
                         selected++;
                        BgSelectedItem(selected, ref item);
                         break;
                     case ConsoleKey.Escape:
+                        Console.CursorVisible = false;
                         Tittle.TieuDe();
                         Select.LuaChonChinh(ref ArrayHH, ref ArrayLH, 0);
                         break;

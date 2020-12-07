@@ -9,6 +9,7 @@ namespace DoAn_NMLT_20880106
     {
         public static void TimKiemHangHoa(ArrayList ArrayHH, ArrayList ArrayLH)
         {
+            Console.CursorVisible = true;
             string keySearch = " ";
             ArrayList ArrayFind = new ArrayList();
             ArrayFind.Clear();
@@ -29,10 +30,13 @@ namespace DoAn_NMLT_20880106
             switch (input.Key)
             {
                 case ConsoleKey.Escape:
+
+                    Console.CursorVisible = false;
                     Tittle.TieuDe();
                     Select.LuaChonChinh(ref ArrayHH, ref ArrayLH, 0);
                     break;
                 case ConsoleKey.Enter:
+                    Console.CursorVisible = false;
                     Console.Clear();
                     TimKiemHangHoa(ArrayHH,ArrayLH);
                     break;

@@ -92,6 +92,7 @@ namespace DoAn_NMLT_20880106
 
 
         public static void AppMain() {
+            Console.CursorVisible = false;
             ArrayList ArrayHH = DuLieuMauHangHoa();
             ArrayList ArrayLH = DuLieuMauLoaiHang();
             Console.OutputEncoding = Encoding.Unicode;

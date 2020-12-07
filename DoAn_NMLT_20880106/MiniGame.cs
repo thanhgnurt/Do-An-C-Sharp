@@ -66,6 +66,7 @@ namespace DoAn_NMLT_20880106
                 switch (input.Key)
                 {
                     case ConsoleKey.Escape:
+                        Console.CursorVisible = true;
                         selectLevel = -1;
                         loop = false;
                         break;
@@ -210,7 +211,7 @@ namespace DoAn_NMLT_20880106
         static void FragmentSnake(Struct.DIEM point)
         {
             Console.SetCursorPosition(point.x, point.y);
-            Console.Write("o");
+            Console.Write("O");
         }
         //---eating
         static void HeaderSnakeEatting(Struct.DIEM point)
@@ -316,10 +317,12 @@ namespace DoAn_NMLT_20880106
                 switch (input.Key)
                 {
                     case ConsoleKey.Escape:
+                        Console.CursorVisible = false;
                         Console.Clear();
                         Program.AppMain();
                         break;
                     case ConsoleKey.Enter:
+                        Console.CursorVisible = false;
                         Console.Clear();
                         SelectLevelGame();
                         break;

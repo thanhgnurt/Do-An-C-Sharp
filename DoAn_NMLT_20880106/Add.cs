@@ -11,6 +11,7 @@ namespace DoAn_NMLT_20880106
         // -- nhập ngày tháng
         static void NhapNgayThangNam(ref int ngay, ref int thang, ref int nam, int top, int left)
         {
+            Console.CursorVisible = true;
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.CursorTop = top * 4 - 2;
             Console.CursorLeft = 1;
@@ -137,17 +138,20 @@ namespace DoAn_NMLT_20880106
                 case ConsoleKey.Escape:
                     break;
                 case ConsoleKey.Enter:
+                    Console.CursorVisible = true;
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.Clear();
                     ThemHangHoa(ref ArrayHH, ref ArrayLH);
                     break;
                 case ConsoleKey.Backspace:
+                    Console.CursorVisible = false;
                     Console.Clear();
                     Tittle.TieuDe();
                     Select.LuaChonChinh(ref ArrayHH,ref ArrayLH, 0);
                     break;
                 default:
+                    Console.CursorVisible = false;
                     DieuHuong(ref ArrayHH, ref ArrayLH);
                     break;
             }
@@ -174,7 +178,7 @@ namespace DoAn_NMLT_20880106
         
         public static void ThemHangHoa(ref ArrayList ArrayHH, ref ArrayList ArrayLH)
         {
-
+            Console.CursorVisible = false;
             Form.FormHangHoa("THÊM HÀNG HÓA");
             Console.ForegroundColor = ConsoleColor.Black;
             Console.BackgroundColor = ConsoleColor.DarkYellow;
@@ -184,49 +188,77 @@ namespace DoAn_NMLT_20880106
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("--------------*");
-            Struct.HOANGHOA SP;
-            InputHH(1, 2, "Mã hàng hóa:");
-            SP.MaHH = Console.ReadLine();
-            InputHH(2, 2, "Tên hàng hóa:");
-            SP.TenHH = Console.ReadLine();
-            int ngay=0, thang=0, nam=0;
-            NhapNgayThangNam(ref ngay, ref thang, ref nam, 3, 1);
-            SP.HanDung.Ngay = ngay;
-            SP.HanDung.Nam = nam;
-            SP.HanDung.Thang = thang;
+            Console.CursorTop = 0;
+            Console.CursorLeft = 37;
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" Nhập [ENTER] ");
+            Console.CursorTop = 0;
+            Console.CursorLeft = 56;
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" Home [ESC] ");
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
-            InputHH(4, 2, "Công ty sản xuất:                               ");
-            SP.CtySX = Console.ReadLine();
-            InputHH(5, 1, "Năm xản xuât");
-            int namSX = 0;
-            Console.CursorLeft = 2;
-            SP.NamSX = NhapInt(namSX, "Năm Sản Xuất", 20, 2);
-            Add.InputHH(6, 2, "Loại hàng hóa:      ");
-            SP.LoaiHang = Console.ReadLine();
-            bool flag;
-            flag = Form.FormXacNhan(10, 40, 5, 40, "Save HH");
-            if (flag)
+            ConsoleKeyInfo input;
+            input = Console.ReadKey(true);
+            if (input.Key == ConsoleKey.Escape)
             {
-                ArrayHH.Add(SP);
-                Console.Clear();
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("Bạn đã lưu thành công!");
-                Console.BackgroundColor = ConsoleColor.White;
-                Console.ForegroundColor = ConsoleColor.Black;
-                Tittle.TieuDe();
-                Select.LuaChonChinh(ref ArrayHH, ref ArrayLH, 0);
-
-            }
-            else
+                Program.AppMain();
+            } else
             {
-
+                Console.CursorVisible = true;
+                Console.CursorTop = 0;
+                Console.CursorLeft = 37;
+                Console.WriteLine("                 ");
+                Console.CursorTop = 0;
+                Console.CursorLeft = 56;
+                Console.WriteLine("                  ");
+                Struct.HOANGHOA SP;
+                InputHH(1, 2, "Mã hàng hóa:");
+                SP.MaHH = Console.ReadLine();
+                InputHH(2, 2, "Tên hàng hóa:");
+                SP.TenHH = Console.ReadLine();
+                int ngay = 0, thang = 0, nam = 0;
+                NhapNgayThangNam(ref ngay, ref thang, ref nam, 3, 1);
+                SP.HanDung.Ngay = ngay;
+                SP.HanDung.Nam = nam;
+                SP.HanDung.Thang = thang;
                 Console.BackgroundColor = ConsoleColor.Gray;
                 Console.ForegroundColor = ConsoleColor.Black;
-                Console.Clear();
-                ThemHangHoa(ref ArrayHH, ref ArrayLH);
+                InputHH(4, 2, "Công ty sản xuất:                               ");
+                SP.CtySX = Console.ReadLine();
+                InputHH(5, 1, "Năm xản xuât");
+                int namSX = 0;
+                Console.CursorLeft = 2;
+                SP.NamSX = NhapInt(namSX, "Năm Sản Xuất", 20, 2);
+                Add.InputHH(6, 2, "Loại hàng hóa:      ");
+                SP.LoaiHang = Console.ReadLine();
+                bool flag;
+                flag = Form.FormXacNhan(10, 40, 5, 40, "Save HH");
+                if (flag)
+                {
+                    ArrayHH.Add(SP);
+                    Console.Clear();
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("Bạn đã lưu thành công!");
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Tittle.TieuDe();
+                    Select.LuaChonChinh(ref ArrayHH, ref ArrayLH, 0);
+
+                }
+                else
+                {
+
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Clear();
+                    ThemHangHoa(ref ArrayHH, ref ArrayLH);
+                }
             }
+
 
         }
     }

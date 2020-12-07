@@ -8,26 +8,29 @@ namespace DoAn_NMLT_20880106
     {
         public static void PageMainCacu()
         {
+            Console.CursorVisible = false;
             Console.Clear();
             Console.CursorVisible = false;
             Console.WriteLine("Bảng tính đang được cập nhật.......");
             Console.CursorTop = 7;
             Console.CursorLeft = 40;
-            Console.WriteLine("Để thoát chon ESC");
-            
+            Console.WriteLine("Home [ESC]");
 
-            while (true)
+            bool loop = true;
+            while (loop)
             {
                 ConsoleKeyInfo input;
                 input = Console.ReadKey(true);
                 if (input.Key == ConsoleKey.Escape)
                 {
-                    break;
-                   
+                    loop = true;
+
                 }
             }
-            Program.AppMain();  
-            
+            Console.Clear();
+            Console.CursorVisible = false;
+            Program.AppMain();
+
         }
     }
 }

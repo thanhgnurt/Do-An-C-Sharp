@@ -16,9 +16,11 @@ namespace DoAn_NMLT_20880106
                     Add.ThemHangHoa(ref ArrayHH, ref ArrayLH);
                     return;
                 case 1:
+                    Console.CursorVisible = false;
                     Edit.SuaHangHoa(ref ArrayHH, ref ArrayLH);
                     return;
                 case 2:
+                    Console.CursorVisible = false;
                     Delete.XoaHangHoa(ref ArrayHH, ref ArrayLH);
                     return;
                 case 3:
@@ -28,9 +30,11 @@ namespace DoAn_NMLT_20880106
                     AddLH.ThemLoaiHang(ref ArrayLH, ref ArrayHH);
                     return;
                 case 5:
+                    Console.CursorVisible = false;
                     EditLH.SuaLoaiHang(ref ArrayLH, ref ArrayHH, 0);
                     return;
                 case 6:
+                    Console.CursorVisible = false;
                     DeleteLH.XoaLoaiHang(ref ArrayLH, ref ArrayHH, 0);
                     return;
                 case 7:
@@ -40,7 +44,16 @@ namespace DoAn_NMLT_20880106
                     Caculator.PageMainCacu();
                     return;
                 case 9:
+                    Console.CursorVisible = false;
                     MiniGame.SelectLevelGame();
+                    return;
+                case 10:
+                    Console.CursorVisible = false;
+                    About.Information();
+                    return;
+                case 11:
+                    Console.CursorVisible = false;
+                    Console.Clear();
                     return;
             }
 
@@ -221,16 +234,19 @@ namespace DoAn_NMLT_20880106
                     }
                     return;
                 case ConsoleKey.Enter:
+                    Console.CursorVisible = false;
+                    Console.CursorVisible = true;
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;      
                     Console.Clear();
                     DieuHuong(select, ref ArrayHH, ref ArrayLH);
                     return;
                 case ConsoleKey.Escape:
-                    LuaChonChinh(ref ArrayHH, ref ArrayLH, select);
+                    Console.Clear();
                     return;
                 default:
-                    LuaChonChinh(ref ArrayHH, ref ArrayLH, select);
+                    Console.CursorVisible = false;
+                    Program.AppMain();
                     return;
                 }
 
