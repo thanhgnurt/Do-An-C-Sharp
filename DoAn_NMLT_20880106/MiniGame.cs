@@ -310,18 +310,21 @@ namespace DoAn_NMLT_20880106
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
             Console.Write("Home [ESC]");
-            while (true)
+            loop = true;
+            while (loop)
             {
                 ConsoleKeyInfo input;
                 input = Console.ReadKey(true);
                 switch (input.Key)
                 {
                     case ConsoleKey.Escape:
+                        loop = false;
                         Console.CursorVisible = false;
                         Console.Clear();
                         Program.AppMain();
                         break;
                     case ConsoleKey.Enter:
+                        loop = false;
                         Console.CursorVisible = false;
                         Console.Clear();
                         SelectLevelGame();
@@ -398,12 +401,10 @@ namespace DoAn_NMLT_20880106
                     
                     if (checkEat && randomPoint.x != 0)
                     {
-                        if(randomPoint.x != 0)
-                        {
+                        
                             //FragmentSnake(randomPoint);
                             HeaderSnakeEatting(Snake[0]);
                             FragmentSnake(Snake[1]);
-                        }
 
                     }
                   
@@ -413,18 +414,12 @@ namespace DoAn_NMLT_20880106
                 input = Console.ReadKey(true);
                 if(input.Key == ConsoleKey.UpArrow || input.Key == ConsoleKey.LeftArrow)
                 {
-                    if (oldFood.x != 0)
-                    {
-                        FragmentSnake(oldFood);
-                    }
+                   
                     check = false;
                 }
                 if (input.Key == ConsoleKey.DownArrow || input.Key == ConsoleKey.RightArrow)
                 {
-                    if (oldFood.x != 0)
-                    {
-                        FragmentSnake(oldFood);
-                    }
+                   
                     check = false;
                 }
                 if (input.Key.ToString() == DirectionSnake)
@@ -435,7 +430,7 @@ namespace DoAn_NMLT_20880106
                 {
                     check = false;
                     break;
-                }
+                } 
                 switch (DirectionSnake)
                 {
                     case "UpArrow":

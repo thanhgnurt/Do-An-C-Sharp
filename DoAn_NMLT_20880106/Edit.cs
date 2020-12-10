@@ -176,7 +176,8 @@ namespace DoAn_NMLT_20880106
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.WriteLine(" Crt + S để lưu lại.");
             FormEditItem(selected, item);
-            while (true)
+            bool loop = true;
+            while (loop)
             {
                 ConsoleKeyInfo input;
                 input = Console.ReadKey(true);
@@ -186,6 +187,7 @@ namespace DoAn_NMLT_20880106
                     flagSave = Form.FormXacNhan(10, 40, 5, 40, ChucNang);
                     if (flagSave)
                     {
+                        loop = false;
                         ArrayHH.RemoveAt(index);
                         ArrayHH.Insert(index, item);
                         Console.Clear();
@@ -194,10 +196,10 @@ namespace DoAn_NMLT_20880106
 
                     } else
                     {
+                        loop = false;
                         Console.ForegroundColor = ConsoleColor.Black;
                         Console.BackgroundColor = ConsoleColor.Gray;
                         Console.Clear();
-
                         SuaHH(ref ArrayHH, ref ArrayLH, ChucNang, index, selected);
                     }
                 }
@@ -233,6 +235,7 @@ namespace DoAn_NMLT_20880106
                         BgSelectedItem(selected, ref item);
                         break;
                     case ConsoleKey.Escape:
+                        loop = false;
                         Console.CursorVisible = false;
                         Tittle.TieuDe();
                         Select.LuaChonChinh(ref ArrayHH, ref ArrayLH, 0);

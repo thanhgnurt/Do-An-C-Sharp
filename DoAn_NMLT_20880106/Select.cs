@@ -41,7 +41,9 @@ namespace DoAn_NMLT_20880106
                     FindLH.TimKiemLoaiHang(ArrayLH, ArrayHH);
                     return;
                 case 8:
-                    Caculator.PageMainCacu();
+                    Console.CursorVisible = false;
+                    //Caculator.PageMainCacu();
+                    FappyBrid.FontGameFB();
                     return;
                 case 9:
                     Console.CursorVisible = false;
@@ -170,8 +172,8 @@ namespace DoAn_NMLT_20880106
             string SuaLoaiHang = " Sửa Loại Hàng     |";
             string XoaLoaiHang = " Xóa Loại Hàng     |";
             string TimKiemLoaiHang = " Tìm Kiếm Loại Hàng|";
-            string KhoHang = " Caculator         |";
-            string Game = " Game              |";
+            string KhoHang = " Game Fappy Brid   |";
+            string Game = " Game Snake        |";
             string About = " About             |";
             string Thoat = " Thoat(ESC)        |";
             string[] ThucDon = new string[12] { ThemHangHoa,SuaHangHoa,XoaHangHoa,TimKiemHangHoa,

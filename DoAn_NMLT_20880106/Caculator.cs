@@ -23,7 +23,7 @@ namespace DoAn_NMLT_20880106
                 input = Console.ReadKey(true);
                 if (input.Key == ConsoleKey.Escape)
                 {
-                    loop = true;
+                    loop = false;
 
                 }
             }

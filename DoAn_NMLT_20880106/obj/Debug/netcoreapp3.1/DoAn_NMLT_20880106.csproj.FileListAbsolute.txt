@@ -23,3 +23,4 @@ D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3
 D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.dll
 D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.pdb
 D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.genruntimeconfig.cache
+D:\DHTX-VB2\Nhap-Mon-Lap-Trinh\20880106\DoAn_NMLT_20880106\obj\Debug\netcoreapp3.1\DoAn_NMLT_20880106.csprojAssemblyReference.cache
