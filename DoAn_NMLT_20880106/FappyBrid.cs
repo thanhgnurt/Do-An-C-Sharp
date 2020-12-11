@@ -10,14 +10,15 @@ namespace DoAn_NMLT_20880106
         public  static void FontGameFB()
         {
             FloorCeilingFB();
-            Struct.DIEM widthDoor;
-            widthDoor.x = 5;
-            widthDoor.y = 6;
+            //Struct.DIEM widthDoor;
+          //  widthDoor.x = 5;
+           // widthDoor.y = 6;
             //ChimenyFB(119, 10, widthDoor);
-            List<Struct.DIEM> Chimeny = new List<Struct.DIEM>();
+           // List<Struct.DIEM> Chimeny = new List<Struct.DIEM>();
             //Chimeny = ChimenyFB2(50, 10 ,1 );
             //WriteChimeny(Chimeny);
-            LoopFB();
+            //LoopFB();
+            FappyBridCore.FappyBrid();
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Read();
@@ -28,7 +29,7 @@ namespace DoAn_NMLT_20880106
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
             int top = 2;
-            int bottom = 25;
+            int bottom = 26;
             int maxWidth = 120;
             Console.Clear();
             for (int i = 0; i< maxWidth; i++ )
@@ -58,7 +59,7 @@ namespace DoAn_NMLT_20880106
             ranDoor = 4;
             int width = 7;
             int top = 2;
-            int bottom = 25;
+            int bottom = 26;
             int maxWidth = 120;
             //-- above chimery
             for (int i = top; i<= height; i++)
@@ -218,7 +219,7 @@ namespace DoAn_NMLT_20880106
         //---chimney bottom---
         static List<Struct.DIEM>[] ChimneyBottom(int indexDoor, int indexChimney)
         {
-            int bottom = 25;
+            int bottom = 26;
             int width = 8;
             int maxWidth = 120;
             Struct.DIEM pointTemp;
@@ -345,12 +346,12 @@ namespace DoAn_NMLT_20880106
 
             });
 
-            T1.Start();
-            T2.Start();
-            T3.Start();
-            T1.Join();
-            T2.Join();
-            T3.Join();
+          //  T1.Start();
+          //  T2.Start();
+          //  T3.Start();
+           // T1.Join();
+           // T2.Join();
+           // T3.Join();
         }
         //----in chimeny
         static void WriteChimney(List<Struct.DIEM>[] Chimney)

@@ -44,6 +44,7 @@ namespace DoAn_NMLT_20880106
                     Console.CursorVisible = false;
                     //Caculator.PageMainCacu();
                     FappyBrid.FontGameFB();
+                   
                     return;
                 case 9:
                     Console.CursorVisible = false;
