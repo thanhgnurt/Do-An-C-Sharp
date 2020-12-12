@@ -99,14 +99,20 @@ namespace DoAn_NMLT_20880106
                 WriteChimneyLeft(PointChimneyLeftXY2);
                 if (c1 > 25 && c1 < 32)
                 {
+
                     for(int k = 0; k< PointChimneyLeftXY.Count; k++)
                     {
                         if (hightBird == PointChimneyLeftXY[k].Y)
                         {
                             //===end game
-                            
-                            return;
+                            i = -20;
+                           
                         }
+                    }
+                    if (c1 == 26)
+                    {
+                        score++;
+                        PrintScore();
                     }
                 }
                 if (c2 > 25 && c2 < 32)
@@ -116,9 +122,13 @@ namespace DoAn_NMLT_20880106
                         if (hightBird == PointChimneyLeftXY1[k].Y)
                         {
                             //===end game
-
-                            return;
+                            i = -20;
                         }
+                    }
+                    if (c2 == 26)
+                    {
+                        score++;
+                        PrintScore();
                     }
                 }
                 if (c3 > 25 && c3 < 32)
@@ -128,12 +138,21 @@ namespace DoAn_NMLT_20880106
                         if (hightBird == PointChimneyLeftXY2[k].Y)
                         {
                             //===end game
-
-                            return;
+                            i = -20;
                         }
                     }
+                    if (c3 == 26)
+                    {
+                        score++;
+                        PrintScore();
+                    }
                 }
-                Thread.Sleep(100);
+                if(hightBird ==2 || hightBird == 27)
+                {
+                    //end game
+                    i = -20;
+                }
+                Thread.Sleep(50);
                 pointBir[0].Y = hightBird;
                 pointBir[1].Y = hightBird;
                 bird = pointBir;
@@ -147,16 +166,14 @@ namespace DoAn_NMLT_20880106
                 if (direction == "MoveUp")
                 {
                     WriteBird(ref bird, direction);
-                    hightBird = hightBird -1;
-                    WriteBird(ref bird, direction);
                     direction = "MoveDown";
                     evenSpace = false;
+
                 }
                 if(skip == 1 && direction=="MoveDown")
                 {
 
                     WriteBird(ref bird,direction);
-                    hightBird++;
                 }
                 if (i == -9)
                 {
@@ -165,8 +182,8 @@ namespace DoAn_NMLT_20880106
                     first = false;
                 }
                 
+                    skip++;
 
-                skip++;
                 if(skip == 2)
                 {
                     skip = 1;
@@ -174,6 +191,7 @@ namespace DoAn_NMLT_20880106
 
 
             }
+            GameOverFB();
 
         }
 

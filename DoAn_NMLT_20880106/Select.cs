@@ -43,7 +43,7 @@ namespace DoAn_NMLT_20880106
                 case 8:
                     Console.CursorVisible = false;
                     //Caculator.PageMainCacu();
-                    FappyBird.FontGameFB(14);
+                    FappyBird.FontGameFB();
                    
                     return;
                 case 9:

@@ -10,29 +10,30 @@ namespace DoAn_NMLT_20880106
         public static int hightBird = 14;
         public static bool evenSpace = false;
         public static POINT[] pointBir = new POINT[2];
+        public static int score = 0;
+        public static bool gameOver = false;
         public struct POINT
         {
             public int X;
             public int Y;
 
         }
-        public  static void FontGameFB(int highBird)
+        public  static void FontGameFB()
         {
+            gameOver = false;
+            hightBird = 14;
             pointBir = FappyBirdBird.pointBird();
             FloorCeilingFB();
-            //Struct.DIEM widthDoor;
-            //  widthDoor.x = 5;
-            // widthDoor.y = 6;
-            //ChimenyFB(119, 10, widthDoor);
-            // List<Struct.DIEM> Chimeny = new List<Struct.DIEM>();
-            //Chimeny = ChimenyFB2(50, 10 ,1 );
-            //WriteChimeny(Chimeny);
-            //LoopFB();
             int hight = FappyBirdBird.InitialHight();
             Thread t1 = new Thread(FappyBirdChimneys.FappyBrid);
             Thread t2 = new Thread(()=>FappyBirdBird.ListenKey(true));
+            Thread t3 = new Thread(FappyBirdBird.MoveDownBird);
             t1.Start();
             t2.Start();
+            t3.Start();
+            t1.Join();
+            t2.Join();
+            t3.Join();
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
 
@@ -61,357 +62,125 @@ namespace DoAn_NMLT_20880106
                         Console.Write(" ");
                     }
 
-
                 }
             }
-            
         }
-        //---ống khói
-        static void ChimenyFB(int x, int height, Struct.DIEM widthDoor)
+
+        //--- print---
+        public static void PrintScore()
         {
-            Random RandomFB = new Random();
-            int ranDoor;
-            ranDoor = RandomFB.Next(widthDoor.x, widthDoor.y);
-            ranDoor = 4;
-            int width = 7;
-            int top = 2;
-            int bottom = 26;
-            //int maxWidth = 120;
-            //-- above chimery
-            for (int i = top; i<= height; i++)
-            {
-                for(int j = 0; j < width; j++)
-                {
-                    if(x+j > 119)
-                    {
-                        break;
-                    }
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(x+j,i);
-                    Console.WriteLine(" ");
-                }
-                
-
-            }
-            if (x + width < 119)
-            {
-                Console.SetCursorPosition(x + width, height);
-                Console.WriteLine(" ");
-                Console.SetCursorPosition(x + width, height - 1);
-                Console.WriteLine(" ");
-                //
-                Console.SetCursorPosition(x + width, height + ranDoor + 1);
-                Console.WriteLine(" ");
-                Console.SetCursorPosition(x + width, height + ranDoor);
-                Console.WriteLine(" ");
-            }
-            
-            Console.SetCursorPosition(x - 1, height);
-            Console.WriteLine(" ");
-            Console.SetCursorPosition(x - 1, height-1);
-            Console.WriteLine(" ");
-            // below chimeny
-            for (int i = height+ranDoor; i <= bottom ; i++)
-            {
-                for (int j = 0; j < width; j++)
-                {
-                    if (x + j > 119)
-                    {
-                        break;
-                    }
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(x + j, i);
-                    Console.WriteLine(" ");
-                }
-            }
-
-
-            Console.SetCursorPosition(x - 1, height+ranDoor);
-            Console.WriteLine(" ");
-            Console.SetCursorPosition(x - 1, height + ranDoor +1);
-            Console.WriteLine(" ");
+            Console.SetCursorPosition(55, 28);
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(" SCORE : "+ score+" ");
             Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
         }
-        //------
-        static void ChimneyFappyBrid(int indexDoor,int indexChimney)
+
+        //----Game over----
+        public static void GameOverFB()
         {
-
-            int slit = 5;
-            List<Struct.DIEM>[] ChimneyT = new List<Struct.DIEM>[2];
-            List<Struct.DIEM>[] ChimneyB = new List<Struct.DIEM>[2];
-            ChimneyT = ChimneyTop(indexDoor, indexChimney);
-            ChimneyB = ChimneyBottom(indexDoor + slit, indexChimney);
-            WriteChimney(ChimneyB);
-            WriteChimney(ChimneyT);
-
-        }
-        //---chimney top---
-        static List<Struct.DIEM>[] ChimneyTop(int indexDoor, int indexChimney)
-        {
-            int top = 2;
-            int maxWidth = 120;
-            int width = 8;
-            Struct.DIEM pointTemp;
-            pointTemp.x = 0;
-            pointTemp.y = 0;
-            List<Struct.DIEM> ChimneyLeft = new List<Struct.DIEM>();
-            List<Struct.DIEM> ChimneyRight = new List<Struct.DIEM>();
-            List<Struct.DIEM>[] Chimney = new List<Struct.DIEM>[2];
-
-
-            for (int i = top; i <= indexDoor; i++)
+            gameOver = true;
+            int g = 10;
+            int a = 20;
+            int m = 34;
+            //
+            int o = 57;
+            int v = 70;
+            int e = 84;
+            int r = 96;
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(g, 10);
+            Console.WriteLine(" #######  "); Console.SetCursorPosition(g, 11);
+            Console.WriteLine(" #     #  "); Console.SetCursorPosition(g, 12);
+            Console.WriteLine(" #        "); Console.SetCursorPosition(g, 13);
+            Console.WriteLine(" #    ### "); Console.SetCursorPosition(g, 14);
+            Console.WriteLine(" #     #  "); Console.SetCursorPosition(g, 15);
+            Console.WriteLine(" #######  "); Console.SetCursorPosition(a, 10);
+            //
+            Console.WriteLine("      #      "); Console.SetCursorPosition(a, 11);
+            Console.WriteLine("     # #     "); Console.SetCursorPosition(a, 12);
+            Console.WriteLine("    #   #    "); Console.SetCursorPosition(a, 13);
+            Console.WriteLine("   #######   "); Console.SetCursorPosition(a, 14);
+            Console.WriteLine("  #       #  "); Console.SetCursorPosition(a, 15);
+            Console.WriteLine(" #         # "); Console.SetCursorPosition(m, 10);
+            //
+            Console.WriteLine(" #       # "); Console.SetCursorPosition(m, 11);
+            Console.WriteLine(" # #   # # "); Console.SetCursorPosition(m, 12);
+            Console.WriteLine(" #   #   # "); Console.SetCursorPosition(m, 13);
+            Console.WriteLine(" #       # "); Console.SetCursorPosition(m, 14);
+            Console.WriteLine(" #       # "); Console.SetCursorPosition(m, 15);
+            Console.WriteLine(" #       # "); Console.SetCursorPosition(o, 10);
+            //
+            Console.WriteLine("  ########  "); Console.SetCursorPosition(o, 11);
+            Console.WriteLine(" #        # "); Console.SetCursorPosition(o, 12);
+            Console.WriteLine(" #        # "); Console.SetCursorPosition(o, 13);
+            Console.WriteLine(" #        # "); Console.SetCursorPosition(o, 14);
+            Console.WriteLine(" #        # "); Console.SetCursorPosition(o, 15);
+            Console.WriteLine("  ########  "); Console.SetCursorPosition(v, 10);
+            //
+            Console.WriteLine(" #         # "); Console.SetCursorPosition(v, 11);
+            Console.WriteLine("  #       #  "); Console.SetCursorPosition(v, 12);
+            Console.WriteLine("   #     #   "); Console.SetCursorPosition(v, 13);
+            Console.WriteLine("    #   #    "); Console.SetCursorPosition(v, 14);
+            Console.WriteLine("     # #     "); Console.SetCursorPosition(v, 15);
+            Console.WriteLine("      #      "); Console.SetCursorPosition(e, 10);
+            //
+            Console.WriteLine(" ######## "); Console.SetCursorPosition(e, 11);
+            Console.WriteLine(" #        "); Console.SetCursorPosition(e, 12);
+            Console.WriteLine(" #        "); Console.SetCursorPosition(e, 13);
+            Console.WriteLine(" ######## "); Console.SetCursorPosition(e, 14);
+            Console.WriteLine(" #        "); Console.SetCursorPosition(e, 15);
+            Console.WriteLine(" ######## "); Console.SetCursorPosition(r, 10);
+            //
+            Console.WriteLine(" ######## "); Console.SetCursorPosition(r, 11);
+            Console.WriteLine(" #      # "); Console.SetCursorPosition(r, 12);
+            Console.WriteLine(" #      # "); Console.SetCursorPosition(r, 13);
+            Console.WriteLine(" ######## "); Console.SetCursorPosition(r, 14);
+            Console.WriteLine(" # #      "); Console.SetCursorPosition(r, 15);
+            Console.WriteLine(" #  ###   "); Console.SetCursorPosition(r+10, 15);
+            Console.WriteLine(" O ");
+            //---dieu huong
+            Console.SetCursorPosition(17, 50);
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("_____________________");
+            Console.CursorTop = 19;
+            Console.CursorLeft = 55;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(" Play again  [ Double ENTER] ");
+            Console.CursorTop = 20;
+            Console.CursorLeft = 55;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(" Home [Double ESC]           ");
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.CursorTop = 0;
+            Console.CursorLeft = 0;
+            bool loop = true;
+            while (loop)
             {
-                //--1/2 chinemy left
-                if (indexChimney < maxWidth)
+                ConsoleKeyInfo input;
+                input = Console.ReadKey(true);
+                switch (input.Key)
                 {
-                    if (i == indexDoor || i == indexDoor - 1)
-                    {
-                        if (i == indexDoor)
-                        {
-                            for (int j = indexChimney - 1; j <= indexChimney + width; j++)
-                            {
-                                if (j < maxWidth)
-                                {
-                                    pointTemp.x = j;
-                                    pointTemp.y = i;
-                                    ChimneyLeft.Add(pointTemp);
-
-                                }
-
-                            }
-                        }
-                        else
-                        {
-                            pointTemp.x = indexChimney;
-                            pointTemp.y = i;
-                            ChimneyLeft.Add(pointTemp);
-                            pointTemp.x = indexChimney - 1;
-                            pointTemp.y = i;
-                            ChimneyLeft.Add(pointTemp);
-
-                        }
-
-
-                    }
-                    else
-                    {
-                        pointTemp.x = indexChimney;
-                        pointTemp.y = i;
-                        ChimneyLeft.Add(pointTemp);
-
-                    }
-
-                }
-                //
-
-
-                //---1/2 chimeny right
-                if (indexChimney + width < maxWidth)
-                {
-                    if ((i == indexDoor || i == indexDoor - 1) && indexChimney + width + 1 < maxWidth)
-                    {
-                        pointTemp.x = indexChimney + width + 1;
-                        pointTemp.y = i;
-                        ChimneyRight.Add(pointTemp);
-
-                    }
-                    else
-                    {
-                        pointTemp.x = indexChimney + width;
-                        pointTemp.y = i;
-                        ChimneyRight.Add(pointTemp);
-
-                    }
-
-                }
-            }
-            Chimney[0] = ChimneyLeft;
-            Chimney[1] = ChimneyRight;
-
-            return Chimney;
-        }
-        //---chimney bottom---
-        static List<Struct.DIEM>[] ChimneyBottom(int indexDoor, int indexChimney)
-        {
-            int bottom = 26;
-            int width = 8;
-            int maxWidth = 120;
-            Struct.DIEM pointTemp;
-            pointTemp.x = 0;
-            pointTemp.y = 0;
-            List<Struct.DIEM> ChimneyLeftB = new List<Struct.DIEM>();
-            List<Struct.DIEM> ChimneyRightB = new List<Struct.DIEM>();
-            List<Struct.DIEM>[] ChimneyB = new List<Struct.DIEM>[2];
-            //---Bottom chimney left--
-            for (int i = indexDoor; i<= bottom; i++)
-            {
-                if (i == indexDoor||i==indexDoor+1)
-                {
-                    if (i == indexDoor)
-                    {
-                        for(int j = indexChimney-1;j <= indexChimney+ width; j++)
-                        {
-                            if (j < maxWidth)
-                            {
-                                pointTemp.x = j;
-                                pointTemp.y = i;
-                                ChimneyLeftB.Add(pointTemp);
-
-                            }
-                        }
-                    }
-                    else
-                    {
-                        pointTemp.x = indexChimney;
-                        pointTemp.y = i;
-                        ChimneyLeftB.Add(pointTemp);
-                        pointTemp.x = indexChimney - 1;
-                        pointTemp.y = i;
-                        ChimneyLeftB.Add(pointTemp);
-
-                    }
-
-                }
-                else
-                {
-                    pointTemp.x = indexChimney;
-                    pointTemp.y = i;
-                    ChimneyLeftB.Add(pointTemp);
-
-                }
-                //---bottom chimney right--
-                if (indexChimney + width < maxWidth)
-                {
-                    if ((i == indexDoor || i == indexDoor + 1)&& indexChimney + width + 1 < maxWidth)
-                    {
-                        pointTemp.x = indexChimney + width + 1;
-                        pointTemp.y = i;
-                        ChimneyRightB.Add(pointTemp);
-                    }
-                    else
-                    {
-                        pointTemp.x = indexChimney + width ;
-                        pointTemp.y = i;
-                        ChimneyRightB.Add(pointTemp);
-                    }
+                    case ConsoleKey.Escape:
+                        Console.CursorVisible = false;
+                        Console.Clear();
+                        Program.AppMain();
+                        return;
+                    case ConsoleKey.Enter:
+                        Console.CursorVisible = false;
+                        Console.Clear();
+                        FontGameFB();
+                        return;
+                    default:
+                        break;
                 }
 
             }
-            ChimneyB[0] = ChimneyLeftB;
-            ChimneyB[1] = ChimneyRightB;
-            return ChimneyB;
-            
+
+
         }
-
-        // --vong lap game---
-        static void LoopWriteFB(List<Struct.DIEM>[] Chimney)
-        {
-            int i = 119;
-            while (i!=0)
-            {
-
-                Thread.Sleep(300);
-                WriteChimney(Chimney);
-                i--;
-
-
-            }
-        }
-        //
-        static void LoopFB()
-        {
-            int i = 119;
-            Thread T1 = new Thread(() =>
-            {
-                while (i != 0)
-                {
-                    Thread.Sleep(200);
-                    ChimneyFappyBrid(10, i);
-                    i--;
-
-                }
-
-            });
-            
-            int j = 119;
-            Thread T2 = new Thread(() =>
-            {
-                Thread.Sleep(TimeSpan.FromSeconds(10));
-                while (j != 0)
-                {
-                    Thread.Sleep(200);
-                    ChimneyFappyBrid(13, j);
-                    j--;
-
-                }
-
-            });
-            int k = 119;
-            Thread T3 = new Thread(() =>
-            {
-                Thread.Sleep(TimeSpan.FromSeconds(20));
-                while (k != 0)
-                {
-                    Thread.Sleep(200);
-                    ChimneyFappyBrid(6, k);
-                    k--;
-
-                }
-
-            });
-
-          //  T1.Start();
-          //  T2.Start();
-          //  T3.Start();
-           // T1.Join();
-           // T2.Join();
-           // T3.Join();
-        }
-        //----in chimeny
-        static void WriteChimney(List<Struct.DIEM>[] Chimney)
-        {
-            //--- write left chimney
-            for (int i = 0; i< Chimney[0].Count; i++)
-            {
-                if (Chimney[0].Count > 0)
-                {
-                    Console.SetCursorPosition(Chimney[0][i].x, Chimney[0][i].y);
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.Write(" ");
-                }
-            }
-            //---write right chimney.
-            for (int i = 0; i < Chimney[1].Count; i++)
-            {
-                if (Chimney[1].Count > 0 )
-                {
-                    Console.SetCursorPosition(Chimney[1][i].x, Chimney[1][i].y);
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.Write(" ");
-                }
-
-            }
-            
-        }
-
-        //---
-        static void WriteBlank(List<Struct.DIEM> chimeny)
-        {
-            for (int i = 0; i < chimeny.Count; i++)
-            {
-                if (chimeny.Count > 0 && chimeny[0].x <=chimeny[i].x)
-                {
-                    Console.SetCursorPosition(chimeny[i].x, chimeny[i].y);
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.Write(" ");
-                }
-
-
-            }
-        }
-
 
 
 

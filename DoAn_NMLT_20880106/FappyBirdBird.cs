@@ -7,20 +7,40 @@ namespace DoAn_NMLT_20880106
 {
     public class FappyBirdBird : FappyBird
     {
+        //------move down brid-------
+        public static void MoveDownBird()
+        {
+            while (true)
+            {
+                if (gameOver)
+                {
+                    return;
+                }
+                if (!evenSpace)
+                {
+                    Thread.Sleep(250);
+                    hightBird ++;
+
+                } 
+            }
+        }
         //-------Listen key----
         public static void ListenKey(bool isTrue)
         {
             while (isTrue)
             {
-
+                if (gameOver)
+                {
+                    return;
+                }
                 ConsoleKeyInfo input;
                 input = Console.ReadKey(true);
                 if (input.Key == ConsoleKey.Spacebar)
                 {
                     hightBird = hightBird - 1;
-
                     evenSpace = true;
                 }
+                
 
             }
 
@@ -59,16 +79,14 @@ namespace DoAn_NMLT_20880106
             for (int i = 0; i < pBird.Length; i++)
             {
                 Console.SetCursorPosition(pBird[i].X, pBird[i].Y);
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.BackgroundColor = ConsoleColor.White;
-                Console.Write("O");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Write(" ");
             }
             if (direction == "MoveDown")
             {
                 for (int i = 0; i < pBird.Length; i++)
                 {
-                    Console.SetCursorPosition(pBird[i].X, hightBird -1);
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.SetCursorPosition(pBird[i].X, hightBird - 1);
                     Console.BackgroundColor = ConsoleColor.White;
                     Console.Write(" ");
                 }
@@ -79,7 +97,6 @@ namespace DoAn_NMLT_20880106
                 for (int i = 0; i < pBird.Length; i++)
                 {
                     Console.SetCursorPosition(pBird[i].X, pBird[i].Y + 1);
-                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.BackgroundColor = ConsoleColor.White;
                     Console.Write(" ");
                 }
