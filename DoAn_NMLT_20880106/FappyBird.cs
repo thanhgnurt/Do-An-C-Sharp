@@ -5,24 +5,40 @@ using System.Threading;
 
 namespace DoAn_NMLT_20880106
 {
-    public class FappyBrid
+    public class FappyBird
     {
-        public  static void FontGameFB()
+        public static int hightBird = 14;
+        public static bool evenSpace = false;
+        public static POINT[] pointBir = new POINT[2];
+        public struct POINT
         {
+            public int X;
+            public int Y;
+
+        }
+        public  static void FontGameFB(int highBird)
+        {
+            pointBir = FappyBirdBird.pointBird();
             FloorCeilingFB();
             //Struct.DIEM widthDoor;
-          //  widthDoor.x = 5;
-           // widthDoor.y = 6;
+            //  widthDoor.x = 5;
+            // widthDoor.y = 6;
             //ChimenyFB(119, 10, widthDoor);
-           // List<Struct.DIEM> Chimeny = new List<Struct.DIEM>();
+            // List<Struct.DIEM> Chimeny = new List<Struct.DIEM>();
             //Chimeny = ChimenyFB2(50, 10 ,1 );
             //WriteChimeny(Chimeny);
             //LoopFB();
-            FappyBridCore.FappyBrid();
+            int hight = FappyBirdBird.InitialHight();
+            Thread t1 = new Thread(FappyBirdChimneys.FappyBrid);
+            Thread t2 = new Thread(()=>FappyBirdBird.ListenKey(true));
+            t1.Start();
+            t2.Start();
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.Read();
+
+            
         }
+        
         //-- nền và trần game
         public static void FloorCeilingFB()
         {
@@ -60,7 +76,7 @@ namespace DoAn_NMLT_20880106
             int width = 7;
             int top = 2;
             int bottom = 26;
-            int maxWidth = 120;
+            //int maxWidth = 120;
             //-- above chimery
             for (int i = top; i<= height; i++)
             {

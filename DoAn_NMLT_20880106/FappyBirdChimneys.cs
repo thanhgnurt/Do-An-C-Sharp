@@ -5,14 +5,10 @@ using System.Threading;
 
 namespace DoAn_NMLT_20880106
 {
-    public struct POINT
+    
+    public class FappyBirdChimneys:FappyBirdBird
     {
-       public int X;
-       public int Y;
-
-    }
-    public class FappyBridCore
-    {
+        
         //----function FB
         public static void FappyBrid()
         {
@@ -27,11 +23,22 @@ namespace DoAn_NMLT_20880106
             int c1;
             int c2=160;
             int c3 = 200;
+            int hChimney1 = 10;
+            int spaceC1 = 5;
+            int spaceC2 = 6;
+            int spaceC3 = 5;
+            int hChimney2 = 13;
+            int hChimney3 = 7;
             bool check = false;
             bool first = true;
-           
+            int skip = 1;
+            string direction = "MoveDown";
+            Random randomObj = new Random();
+            int hight = hightBird;
+            POINT[] bird = new POINT[2];
             for (int i = 120; i>=-9; i--)
             {
+
                 c1 = i;
                 if(!check )
                 {
@@ -55,39 +62,117 @@ namespace DoAn_NMLT_20880106
                 if(c2>=80 && !first)
                 {
                     c3 = 31 - 120 + c2;
+
                 }
                 if (check && c2 < 80)
                 {
                     c3 = c2 + 40;
                 }
+                //reandom h and space
+                if (c1 == 120)
+                {
+                    hChimney1 = randomObj.Next(5, 16);
+                    spaceC1 = randomObj.Next(5, 7);
+                }
+                if (c2 == 120)
+                {
+                    hChimney2 = randomObj.Next(5, 17);
+                    spaceC2 = randomObj.Next(5, 7);
+                }
+                if (c3 == 120)
+                {
+                    hChimney3 = randomObj.Next(5, 17);
+                    spaceC3 = randomObj.Next(5, 7);
+                }
 
-
-
-
-
-                Thread.Sleep(100);
-                PointChimneyLeftXY = CreatePointChimneyLeft(10, 5, c1);
-                PointChimneyRightXY = CreatePointChimneyRight(10, 5, c1 + 8);
-                PointChimneyLeftXY1 = CreatePointChimneyLeft(15, 6, c2);
-                PointChimneyRightXY1 = CreatePointChimneyRight(15, 6, c2 + 8);
-                PointChimneyLeftXY2 = CreatePointChimneyLeft(8, 5, c3);
-                PointChimneyRightXY2 = CreatePointChimneyRight(8, 5,c3+ 8);
-                PointChimneyLeftXY3 = CreatePointChimneyLeft(8, 5, i + 120);
-                PointChimneyRightXY3 = CreatePointChimneyRight(8, 5, i + 128);
+                PointChimneyLeftXY = CreatePointChimneyLeft(hChimney1, spaceC1, c1);
+                PointChimneyRightXY = CreatePointChimneyRight(hChimney1, spaceC1, c1 + 8);
+                PointChimneyLeftXY1 = CreatePointChimneyLeft(hChimney2, spaceC2, c2);
+                PointChimneyRightXY1 = CreatePointChimneyRight(hChimney2, spaceC2, c2 + 8);
+                PointChimneyLeftXY2 = CreatePointChimneyLeft(hChimney3, spaceC3, c3);
+                PointChimneyRightXY2 = CreatePointChimneyRight(hChimney3, 5,c3+ 8);
                 WriteChimneyRight(PointChimneyRightXY);
                 WriteChimneyLeft(PointChimneyLeftXY);
                 WriteChimneyRight(PointChimneyRightXY1);
                 WriteChimneyLeft(PointChimneyLeftXY1);
                 WriteChimneyRight(PointChimneyRightXY2);
                 WriteChimneyLeft(PointChimneyLeftXY2);
-                //WriteChimneyRight(PointChimneyRightXY3);
-               // WriteChimneyLeft(PointChimneyLeftXY3);
+                if (c1 > 25 && c1 < 32)
+                {
+                    for(int k = 0; k< PointChimneyLeftXY.Count; k++)
+                    {
+                        if (hightBird == PointChimneyLeftXY[k].Y)
+                        {
+                            //===end game
+                            
+                            return;
+                        }
+                    }
+                }
+                if (c2 > 25 && c2 < 32)
+                {
+                    for (int k = 0; k < PointChimneyLeftXY1.Count; k++)
+                    {
+                        if (hightBird == PointChimneyLeftXY1[k].Y)
+                        {
+                            //===end game
+
+                            return;
+                        }
+                    }
+                }
+                if (c3 > 25 && c3 < 32)
+                {
+                    for (int k = 0; k < PointChimneyLeftXY2.Count; k++)
+                    {
+                        if (hightBird == PointChimneyLeftXY2[k].Y)
+                        {
+                            //===end game
+
+                            return;
+                        }
+                    }
+                }
+                Thread.Sleep(100);
+                pointBir[0].Y = hightBird;
+                pointBir[1].Y = hightBird;
+                bird = pointBir;
+                if (evenSpace)
+                {
+                    direction = "MoveUp";
+                } else
+                {
+                    direction = "MoveDown";
+                }
+                if (direction == "MoveUp")
+                {
+                    WriteBird(ref bird, direction);
+                    hightBird = hightBird -1;
+                    WriteBird(ref bird, direction);
+                    direction = "MoveDown";
+                    evenSpace = false;
+                }
+                if(skip == 1 && direction=="MoveDown")
+                {
+
+                    WriteBird(ref bird,direction);
+                    hightBird++;
+                }
                 if (i == -9)
                 {
                     check = !check;
                     i = 120;
                     first = false;
                 }
+                
+
+                skip++;
+                if(skip == 2)
+                {
+                    skip = 1;
+                }
+
+
             }
 
         }
