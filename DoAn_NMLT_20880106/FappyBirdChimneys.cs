@@ -147,7 +147,7 @@ namespace DoAn_NMLT_20880106
                         PrintScore();
                     }
                 }
-                if(hightBird ==2 || hightBird == 27)
+                if(hightBird <=2 || hightBird >= 27)
                 {
                     //end game
                     i = -20;
@@ -167,6 +167,7 @@ namespace DoAn_NMLT_20880106
                 {
                     WriteBird(ref bird, direction);
                     direction = "MoveDown";
+                    Thread.Sleep(50);
                     evenSpace = false;
 
                 }

@@ -12,6 +12,7 @@ namespace DoAn_NMLT_20880106
         {
             while (true)
             {
+
                 if (gameOver)
                 {
                     return;
@@ -37,8 +38,8 @@ namespace DoAn_NMLT_20880106
                 input = Console.ReadKey(true);
                 if (input.Key == ConsoleKey.Spacebar)
                 {
-                    hightBird = hightBird - 1;
                     evenSpace = true;
+                    hightBird = hightBird - 1;
                 }
                 
 
@@ -78,17 +79,26 @@ namespace DoAn_NMLT_20880106
         {
             for (int i = 0; i < pBird.Length; i++)
             {
-                Console.SetCursorPosition(pBird[i].X, pBird[i].Y);
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.Write(" ");
+                if (pBird[0].Y>=0)
+                {
+                    Console.SetCursorPosition(pBird[i].X, pBird[i].Y);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.Write(" ");
+                }
+
             }
             if (direction == "MoveDown")
             {
                 for (int i = 0; i < pBird.Length; i++)
                 {
-                    Console.SetCursorPosition(pBird[i].X, hightBird - 1);
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.Write(" ");
+                    if (pBird[i].Y>0)
+                    {
+
+                        Console.SetCursorPosition(pBird[i].X, pBird[i].Y - 1);
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.Write(" ");
+                    }
+                    
                 }
   
             }
@@ -96,9 +106,12 @@ namespace DoAn_NMLT_20880106
             {
                 for (int i = 0; i < pBird.Length; i++)
                 {
-                    Console.SetCursorPosition(pBird[i].X, pBird[i].Y + 1);
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.Write(" ");
+                   
+
+                        Console.SetCursorPosition(pBird[i].X, pBird[i].Y + 1);
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.Write(" ");
+                    
                 }
             }
 
