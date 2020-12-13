@@ -16,10 +16,10 @@ namespace DoAn_NMLT_20880106
                 if (gameOver)
                 {
                     return;
-                }
-                if (!evenSpace)
+                }   
+                if (!evenSpace && deleteShadow)
                 {
-                    Thread.Sleep(250);
+                    Thread.Sleep(200);
                     hightBird ++;
 
                 } 
@@ -30,18 +30,19 @@ namespace DoAn_NMLT_20880106
         {
             while (isTrue)
             {
+                
                 if (gameOver)
                 {
                     return;
                 }
                 ConsoleKeyInfo input;
                 input = Console.ReadKey(true);
-                if (input.Key == ConsoleKey.Spacebar)
+                if (input.Key == ConsoleKey.Spacebar && deleteShadow)
                 {
+                    hightBird = hightBird - 2;
+                    deleteShadow = false;
                     evenSpace = true;
-                    hightBird = hightBird - 1;
                 }
-                
 
             }
 
@@ -56,63 +57,110 @@ namespace DoAn_NMLT_20880106
         public static void ReturnHight()
         {
         }
-        //-----Fappy Bird Main----
-        public static void FappyBirdMain()
+
+        //---active move bird---
+        public static void ActiveMoveBird(POINT[]pBird)
         {
-            int hight = 14;
-            POINT[] bird = new POINT[2];
-            bird = pointBir;
-            while (true)
+            DeleteShadowUp(pBird);
+            WriteBird(pBird);
+        }
+        //----delete shadow down---
+        public static void DeleteShadowDown(POINT[] pBird)
+        {
+            for (int i = 0; i < pBird.Length; i++)
             {
-               
-                ConsoleKeyInfo input;
-                input = Console.ReadKey(true);
-                if (input.Key == ConsoleKey.Spacebar)
+                if (pBird[i].Y > 0)
                 {
-                    hight = hight - 2;
+                    Console.SetCursorPosition(pBird[i].X, pBird[i].Y );
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.Write(" ");
+                    Console.BackgroundColor = ConsoleColor.White;
                 }
 
             }
         }
-        //---write bird---
-        public static void WriteBird(ref POINT[] pBird, string direction)
+        //----delete shadow up----
+        public static void DeleteShadowUp(POINT[] pBird)
         {
             for (int i = 0; i < pBird.Length; i++)
             {
-                if (pBird[0].Y>=0)
+
+                Console.SetCursorPosition(pBird[i].X, pBird[i].Y + 2);
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.Write(" ");
+                deleteShadow = true;
+
+
+            }
+        }
+        //-----write move bird-----
+        public static void WriteMoveBird(POINT[] pBird)
+        {
+            for (int i = 0; i < pBird.Length; i++)
+            {
+                if (pBird[0].Y >= 0)
                 {
                     Console.SetCursorPosition(pBird[i].X, pBird[i].Y);
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.Write(" ");
+                    Console.BackgroundColor = ConsoleColor.White;
                 }
 
             }
+        }
+        //----active move bird--delete shadow bird---
+        public static void DeleteShadowBird(POINT[] pBird, string direction)
+        {
+           
+            if (direction == "MoveUp")
+            {
+                for (int i = 0; i < pBird.Length; i++)
+                {
+
+                    Console.SetCursorPosition(pBird[i].X, pBird[i].Y + 1);
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.Write(" ");
+                    Console.SetCursorPosition(pBird[i].X, pBird[i].Y + 2);
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.Write(" ");
+                    deleteShadow = true;
+
+
+                }
+            }
+
             if (direction == "MoveDown")
             {
                 for (int i = 0; i < pBird.Length; i++)
                 {
-                    if (pBird[i].Y>0)
+                    if (pBird[i].Y > 0 )
                     {
-
                         Console.SetCursorPosition(pBird[i].X, pBird[i].Y - 1);
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.Write(" ");
                     }
-                    
-                }
-  
-            }
-            if(direction == "MoveUp")
-            {
-                for (int i = 0; i < pBird.Length; i++)
-                {
-                   
 
-                        Console.SetCursorPosition(pBird[i].X, pBird[i].Y + 1);
-                        Console.BackgroundColor = ConsoleColor.White;
-                        Console.Write(" ");
-                    
                 }
+
+            }
+
+
+        }
+        //---active move bird--write bird---
+
+        public static void WriteBird(POINT[] pBird)
+        {
+         
+            for (int i = 0; i < pBird.Length; i++)
+            {
+                if (pBird[0].Y >= 0)
+                {
+                    Console.SetCursorPosition(pBird[i].X, pBird[i].Y);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.Write(" ");
+                    Console.BackgroundColor = ConsoleColor.White;
+                }
+
             }
 
         }
@@ -133,12 +181,7 @@ namespace DoAn_NMLT_20880106
             return bird;
         }
 
-        //--- control bird---
-        public static void ControlBird(int hight)
-        {
 
-            hight = hight -2;
-        }
 
        
 

@@ -12,147 +12,236 @@ namespace DoAn_NMLT_20880106
         //----function FB
         public static void FappyBrid()
         {
-            List<POINT> PointChimneyLeftXY = new List<POINT>();
-            List<POINT> PointChimneyRightXY = new List<POINT>();
+
             List<POINT> PointChimneyLeftXY1 = new List<POINT>();
             List<POINT> PointChimneyRightXY1 = new List<POINT>();
             List<POINT> PointChimneyLeftXY2 = new List<POINT>();
             List<POINT> PointChimneyRightXY2 = new List<POINT>();
             List<POINT> PointChimneyLeftXY3 = new List<POINT>();
             List<POINT> PointChimneyRightXY3 = new List<POINT>();
+            List<POINT> PointChimneyLeftXY4 = new List<POINT>();
+            List<POINT> PointChimneyRightXY4 = new List<POINT>();
             int c1;
-            int c2=160;
-            int c3 = 200;
-            int hChimney1 = 10;
-            int spaceC1 = 5;
+            int c2=150;
+            int c3 = 180;
+            int c4 = 210;
+            int spaceC1 = 6;
             int spaceC2 = 6;
-            int spaceC3 = 5;
-            int hChimney2 = 13;
-            int hChimney3 = 7;
-            bool check = false;
+            int spaceC3 = 6;
+            int spaceC4 = 6;
+            int hChimney1 = 10;
+            int hChimney2 = 10;
+            int hChimney3 =10;
+            int hChimney4 = 10;
             bool first = true;
-            int skip = 1;
-            string direction = "MoveDown";
-            Random randomObj = new Random();
-            int hight = hightBird;
+            int rangeC1 = 35;
+            int rangeC2 = 30;
+            int rangeC3 = 30;
+            //int rangeC4 = 30;
+            string direction;
+
+
+            // int hight = hightBird;
             POINT[] bird = new POINT[2];
             for (int i = 120; i>=-9; i--)
             {
-
+                // speed game
+                Thread.Sleep(speedGame);
+                //index first----
                 c1 = i;
-                if(!check )
+                if (first)
                 {
-                    c2 = c1 + 40;
-                }
-                
-                if (c1 >= 80 && !first)
-                {
-                    c2 = 31 - 120 + c1;
-                }
-                if (check && c1<80)
-                {
-                    c2 = c1 + 40;
+                    c2 = c1 + rangeC1;
+                    c3 = c2 + rangeC2;
+                    c4 = c3 + rangeC2;
+                    
                 }
                
-                if (!check )
+                //
+                if (c1 >= (120-rangeC1)&& !first )
                 {
-
-                    c3 = c2 + 40;
-                }
-                if(c2>=80 && !first)
-                {
-                    c3 = 31 - 120 + c2;
+                    c2 = rangeC1 -9 - 120 + c1;
+                    c3 = c2 + rangeC2 + 1;
+                    c4 = c3 + rangeC3 + 1;
 
                 }
-                if (check && c2 < 80)
+                if(c1<(120-rangeC1)&& !first )
                 {
-                    c3 = c2 + 40;
+                    c2 = c1 + rangeC1 + 1;
+                    c3 = c2 + rangeC2 + 1;
+                    c4 = c3 + rangeC3 + 1;
+
                 }
+
+                if(c2 >= (120-rangeC2)&& !first)
+                {
+                    c3 = rangeC2 - 9 - 120 + c2 ;
+                    c4 = c3 + rangeC3;
+                }
+                if (c2 < (120 - rangeC2) && !first)
+                {
+                    c3 = c2 + rangeC2 + 1;
+
+                }
+
+                if (c3 >= (120 - rangeC3) && !first)
+                {
+                    c4 = rangeC3 - 9 - 120 + c3;
+                }
+
+                if (c3 < (120 - rangeC3) && !first)
+                {
+                    c4 = c3 + rangeC3 + 1;
+
+                }
+                //
+
+
+
                 //reandom h and space
-                if (c1 == 120)
+                if (c1 == 120 )
                 {
-                    hChimney1 = randomObj.Next(5, 16);
-                    spaceC1 = randomObj.Next(5, 7);
+                    Random randomObj = new Random();
+                    hChimney1 = randomObj.Next(5, 18);
+                    // rangeC1 = randomObj.Next(20, 25);
+                    if (score >= 10)
+                    {
+                        spaceC1 = randomObj.Next(5, 6);
+                    } else
+                    {
+
+                        spaceC1 = randomObj.Next(7, 8);
+                    } 
                 }
-                if (c2 == 120)
+                if (c2 == 120 )
                 {
-                    hChimney2 = randomObj.Next(5, 17);
-                    spaceC2 = randomObj.Next(5, 7);
+                    Random randomObj = new Random();
+                    hChimney2 = randomObj.Next(5, 18);
+                    if (score >= 15)
+                    {
+                        spaceC2 = randomObj.Next(5, 6);
+                    }
+                    else
+                    {
+
+                        spaceC2 = randomObj.Next(7, 8);
+                    }
                 }
-                if (c3 == 120)
+                if (c3 ==120 )
                 {
-                    hChimney3 = randomObj.Next(5, 17);
-                    spaceC3 = randomObj.Next(5, 7);
+                    Random randomObj = new Random();
+                    hChimney3 = randomObj.Next(5, 18);
+                    //rangeC2 = randomObj.Next(25, 35);
+                    if (score >= 20)
+                    {
+                        spaceC3 = 5;
+                    }
+                    else
+                    {
+
+                        spaceC3 = randomObj.Next(7, 8);
+                    }
+                }
+                if (c4 == 120 )
+                {
+                    Random randomObj = new Random();
+                    hChimney4 = randomObj.Next(5, 18);
+                    if (score >= 10)
+                    {
+                        spaceC4 = randomObj.Next(5, 6);
+                    }
+                    else
+                    {
+
+                        spaceC4 = randomObj.Next(7, 8);
+                    }
                 }
 
-                PointChimneyLeftXY = CreatePointChimneyLeft(hChimney1, spaceC1, c1);
-                PointChimneyRightXY = CreatePointChimneyRight(hChimney1, spaceC1, c1 + 8);
-                PointChimneyLeftXY1 = CreatePointChimneyLeft(hChimney2, spaceC2, c2);
-                PointChimneyRightXY1 = CreatePointChimneyRight(hChimney2, spaceC2, c2 + 8);
-                PointChimneyLeftXY2 = CreatePointChimneyLeft(hChimney3, spaceC3, c3);
-                PointChimneyRightXY2 = CreatePointChimneyRight(hChimney3, 5,c3+ 8);
-                WriteChimneyRight(PointChimneyRightXY);
-                WriteChimneyLeft(PointChimneyLeftXY);
+                PointChimneyLeftXY1 = CreatePointChimneyLeft(hChimney1, spaceC1, c1);
+                PointChimneyRightXY1 = CreatePointChimneyRight(hChimney1, spaceC1, c1 + 8);
+                PointChimneyLeftXY2 = CreatePointChimneyLeft(hChimney2, spaceC2, c2);
+                PointChimneyRightXY2 = CreatePointChimneyRight(hChimney2, spaceC2, c2 + 8);
+                PointChimneyLeftXY3 = CreatePointChimneyLeft(hChimney3, spaceC3, c3);
+                PointChimneyRightXY3 = CreatePointChimneyRight(hChimney3, spaceC3 , c3+ 8);
+                PointChimneyLeftXY4 = CreatePointChimneyLeft(hChimney4, spaceC4, c4);
+                PointChimneyRightXY4 = CreatePointChimneyRight(hChimney4, spaceC4, c4 + 8);
                 WriteChimneyRight(PointChimneyRightXY1);
                 WriteChimneyLeft(PointChimneyLeftXY1);
                 WriteChimneyRight(PointChimneyRightXY2);
                 WriteChimneyLeft(PointChimneyLeftXY2);
-                if (c1 > 25 && c1 < 32)
+                WriteChimneyRight(PointChimneyRightXY3);
+                WriteChimneyLeft(PointChimneyLeftXY3);
+                WriteChimneyRight(PointChimneyRightXY4);
+                WriteChimneyLeft(PointChimneyLeftXY4);
+                if (c1 > 24 && c1 < 32)
                 {
 
-                    for(int k = 0; k< PointChimneyLeftXY.Count; k++)
+                    for(int k = 0; k< PointChimneyLeftXY1.Count; k++)
                     {
-                        if (hightBird == PointChimneyLeftXY[k].Y)
+                        if (hightBird == PointChimneyLeftXY1[k].Y)
                         {
                             //===end game
                             i = -20;
                            
                         }
                     }
-                    if (c1 == 26)
-                    {
-                        score++;
-                        PrintScore();
-                    }
+                  
                 }
-                if (c2 > 25 && c2 < 32)
-                {
-                    for (int k = 0; k < PointChimneyLeftXY1.Count; k++)
-                    {
-                        if (hightBird == PointChimneyLeftXY1[k].Y)
-                        {
-                            //===end game
-                            i = -20;
-                        }
-                    }
-                    if (c2 == 26)
-                    {
-                        score++;
-                        PrintScore();
-                    }
-                }
-                if (c3 > 25 && c3 < 32)
+                if (c2 > 24 && c2 < 32)
                 {
                     for (int k = 0; k < PointChimneyLeftXY2.Count; k++)
                     {
                         if (hightBird == PointChimneyLeftXY2[k].Y)
                         {
+                            //===end game- dk thoat vong lap <-9
+                            i = -10;
+                        }
+                    }
+                   
+                }
+                if (c3 > 24 && c3 < 32)
+                {
+                    for (int k = 0; k < PointChimneyLeftXY3.Count; k++)
+                    {
+                        if (hightBird == PointChimneyLeftXY3[k].Y)
+                        {
                             //===end game
                             i = -20;
                         }
                     }
-                    if (c3 == 26)
-                    {
-                        score++;
-                        PrintScore();
-                    }
+
                 }
-                if(hightBird <=2 || hightBird >= 27)
+                if (c4 > 24 && c4 < 32)
+                {
+                    for (int k = 0; k < PointChimneyLeftXY4.Count; k++)
+                    {
+                        if (hightBird == PointChimneyLeftXY4[k].Y)
+                        {
+                            //===end game
+                            i = -20;
+                        }
+                    }
+                   
+                }
+                //--- count score----
+                if (c4 == 22 || c3 ==22 || c2 == 22 || c1 == 22)
+                {
+                    score++;
+                    if (speedGame > 0)
+                    {
+                        speedGame = speedGame - 10 ;
+                    }
+                    if (score%10 == 2)
+                    {
+                        speedGame = 80;
+                    }
+                    PrintScore();
+                }
+                if (hightBird <=2 || hightBird >= 27)
                 {
                     //end game
-                    i = -20;
+                   i = -20;
                 }
-                Thread.Sleep(50);
                 pointBir[0].Y = hightBird;
                 pointBir[1].Y = hightBird;
                 bird = pointBir;
@@ -163,39 +252,40 @@ namespace DoAn_NMLT_20880106
                 {
                     direction = "MoveDown";
                 }
+            
+              
                 if (direction == "MoveUp")
                 {
-                    WriteBird(ref bird, direction);
+             
+                    ActiveMoveBird(bird);
                     direction = "MoveDown";
-                    Thread.Sleep(50);
                     evenSpace = false;
-
                 }
-                if(skip == 1 && direction=="MoveDown")
+              
+                if ( direction=="MoveDown" && !evenSpace)
                 {
+                    DeleteShadowDown(bird);
+                }
+                
 
-                    WriteBird(ref bird,direction);
+                hightBird++;
+                pointBir[0].Y = hightBird;
+                pointBir[1].Y = hightBird;
+                bird = pointBir;
+                if (direction == "MoveDown" &&! evenSpace)
+                {
+                    WriteMoveBird(bird);
                 }
                 if (i == -9)
                 {
-                    check = !check;
-                    i = 120;
+                    i = 121;
                     first = false;
                 }
-                
-                    skip++;
-
-                if(skip == 2)
-                {
-                    skip = 1;
-                }
-
 
             }
             GameOverFB();
 
         }
-
 
         //---function create chimney XY left----
         public static List<POINT> CreatePointChimneyLeft(int heightChT, int spaceChs, int x)

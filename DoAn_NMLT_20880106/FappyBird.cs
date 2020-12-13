@@ -12,6 +12,9 @@ namespace DoAn_NMLT_20880106
         public static POINT[] pointBir = new POINT[2];
         public static int score = 0;
         public static bool gameOver = false;
+        public static bool deleteShadow = true;
+        public static int speedGame = 100;
+        public static bool shadowOnChimney = false;
         public struct POINT
         {
             public int X;
@@ -27,18 +30,17 @@ namespace DoAn_NMLT_20880106
             int hight = FappyBirdBird.InitialHight();
             Thread t1 = new Thread(FappyBirdChimneys.FappyBrid);
             Thread t2 = new Thread(()=>FappyBirdBird.ListenKey(true));
-            Thread t3 = new Thread(FappyBirdBird.MoveDownBird);
+           // Thread t3 = new Thread(FappyBirdBird.MoveDownBird);
             t1.Start();
             t2.Start();
-            t3.Start();
+           // t3.Start();
             t1.Join();
             t2.Join();
-            t3.Join();
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Black;
+           // t3.Join();
 
             
         }
+
         
         //-- nền và trần game
         public static void FloorCeilingFB()
