@@ -24,16 +24,22 @@ namespace DoAn_NMLT_20880106
         public  static void FontGameFB()
         {
             gameOver = false;
+            score = 0;
+            deleteShadow = true;
             hightBird = 14;
             pointBir = FappyBirdBird.pointBird();
+            Console.BackgroundColor = ConsoleColor.Blue;
             FloorCeilingFB();
-            int hight = FappyBirdBird.InitialHight();
             Thread t1 = new Thread(FappyBirdChimneys.FappyBrid);
             Thread t2 = new Thread(()=>FappyBirdBird.ListenKey(true));
            // Thread t3 = new Thread(FappyBirdBird.MoveDownBird);
             t1.Start();
             t2.Start();
-           // t3.Start();
+            Console.SetCursorPosition(0, 0);
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" Fly Up [SPACEBAR] ");
+            // t3.Start();
             t1.Join();
             t2.Join();
            // t3.Join();
@@ -84,8 +90,8 @@ namespace DoAn_NMLT_20880106
         {
             gameOver = true;
             int g = 12;
-            int a = 22;
-            int m = 35;
+            int a = 23;
+            int m = 36;
             //
             int o = 57;
             int v = 69;
@@ -94,13 +100,13 @@ namespace DoAn_NMLT_20880106
             Console.BackgroundColor = ConsoleColor.White;
             Console.SetCursorPosition(g, 9);
             Console.WriteLine("             "); Console.SetCursorPosition(g, 10);
-            Console.WriteLine("  ########   "); Console.SetCursorPosition(g, 11);
-            Console.WriteLine("  #      #   "); Console.SetCursorPosition(g, 12);
-            Console.WriteLine("  #          "); Console.SetCursorPosition(g, 13);
-            Console.WriteLine("  #    ####  "); Console.SetCursorPosition(g, 14);
-            Console.WriteLine("  #      #   "); Console.SetCursorPosition(g, 15);
-            Console.WriteLine("  ########   "); Console.SetCursorPosition(g, 16);
-            Console.WriteLine("             "); Console.SetCursorPosition(a, 9);
+            Console.WriteLine("   ########   "); Console.SetCursorPosition(g, 11);
+            Console.WriteLine("   #      #   "); Console.SetCursorPosition(g, 12);
+            Console.WriteLine("   #          "); Console.SetCursorPosition(g, 13);
+            Console.WriteLine("   #    ####  "); Console.SetCursorPosition(g, 14);
+            Console.WriteLine("   #      #   "); Console.SetCursorPosition(g, 15);
+            Console.WriteLine("   ########   "); Console.SetCursorPosition(g, 16);
+            Console.WriteLine("              "); Console.SetCursorPosition(a, 9);
             //
             Console.WriteLine("               "); Console.SetCursorPosition(a, 10);
             Console.WriteLine("       #       "); Console.SetCursorPosition(a, 11);
@@ -147,14 +153,14 @@ namespace DoAn_NMLT_20880106
             Console.WriteLine(" ########  "); Console.SetCursorPosition(r, 16);
             Console.WriteLine("           "); Console.SetCursorPosition(r, 9);
             //
-            Console.WriteLine("            "); Console.SetCursorPosition(r, 10);
-            Console.WriteLine("  ########  "); Console.SetCursorPosition(r, 11);
-            Console.WriteLine("  #      #  "); Console.SetCursorPosition(r, 12);
-            Console.WriteLine("  #      #  "); Console.SetCursorPosition(r, 13);
-            Console.WriteLine("  ########  "); Console.SetCursorPosition(r, 14);
-            Console.WriteLine("  # #       "); Console.SetCursorPosition(r, 15);
-            Console.WriteLine("  #  ###    "); Console.SetCursorPosition(r, 16);
-            Console.WriteLine("            "); Console.SetCursorPosition(r + 10, 15);
+            Console.WriteLine("              "); Console.SetCursorPosition(r, 10);
+            Console.WriteLine("  ########    "); Console.SetCursorPosition(r, 11);
+            Console.WriteLine("  #      #    "); Console.SetCursorPosition(r, 12);
+            Console.WriteLine("  #      #    "); Console.SetCursorPosition(r, 13);
+            Console.WriteLine("  ########    "); Console.SetCursorPosition(r, 14);
+            Console.WriteLine("  # #         "); Console.SetCursorPosition(r, 15);
+            Console.WriteLine("  #  ###      "); Console.SetCursorPosition(r, 16);
+            Console.WriteLine("              "); Console.SetCursorPosition(r + 10, 15);
             Console.WriteLine(" R ");
             //---dieu huong
             Console.SetCursorPosition(17, 45);

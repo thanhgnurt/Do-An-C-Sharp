@@ -39,6 +39,7 @@ namespace DoAn_NMLT_20880106
             int rangeC3 = 30;
             //int rangeC4 = 30;
             string direction;
+            int skip = 1;
 
 
             // int hight = hightBird;
@@ -102,8 +103,7 @@ namespace DoAn_NMLT_20880106
                 if (c1 == 120 )
                 {
                     Random randomObj = new Random();
-                    hChimney1 = randomObj.Next(5, 18);
-                    // rangeC1 = randomObj.Next(20, 25);
+                    hChimney1 = randomObj.Next(4, 17);
                     if (score >= 10)
                     {
                         spaceC1 = randomObj.Next(5, 6);
@@ -116,7 +116,7 @@ namespace DoAn_NMLT_20880106
                 if (c2 == 120 )
                 {
                     Random randomObj = new Random();
-                    hChimney2 = randomObj.Next(5, 18);
+                    hChimney2 = randomObj.Next(4, 17);
                     if (score >= 15)
                     {
                         spaceC2 = randomObj.Next(5, 6);
@@ -130,11 +130,10 @@ namespace DoAn_NMLT_20880106
                 if (c3 ==120 )
                 {
                     Random randomObj = new Random();
-                    hChimney3 = randomObj.Next(5, 18);
-                    //rangeC2 = randomObj.Next(25, 35);
-                    if (score >= 20)
+                    hChimney3 = randomObj.Next(4, 17);
+                    if (score >= 10)
                     {
-                        spaceC3 = 5;
+                        spaceC3 = randomObj.Next(5, 6);
                     }
                     else
                     {
@@ -145,8 +144,9 @@ namespace DoAn_NMLT_20880106
                 if (c4 == 120 )
                 {
                     Random randomObj = new Random();
-                    hChimney4 = randomObj.Next(5, 18);
-                    if (score >= 10)
+                    hChimney4 = randomObj.Next(4, 17);
+
+                    if (score >= 5)
                     {
                         spaceC4 = randomObj.Next(5, 6);
                     }
@@ -181,7 +181,7 @@ namespace DoAn_NMLT_20880106
                         if (hightBird == PointChimneyLeftXY1[k].Y)
                         {
                             //===end game
-                            i = -20;
+                            i = -10;
                            
                         }
                     }
@@ -194,7 +194,7 @@ namespace DoAn_NMLT_20880106
                         if (hightBird == PointChimneyLeftXY2[k].Y)
                         {
                             //===end game- dk thoat vong lap <-9
-                            i = -10;
+                           i = -10;
                         }
                     }
                    
@@ -206,7 +206,7 @@ namespace DoAn_NMLT_20880106
                         if (hightBird == PointChimneyLeftXY3[k].Y)
                         {
                             //===end game
-                            i = -20;
+                           i = -10;
                         }
                     }
 
@@ -218,7 +218,7 @@ namespace DoAn_NMLT_20880106
                         if (hightBird == PointChimneyLeftXY4[k].Y)
                         {
                             //===end game
-                            i = -20;
+                           i = -10;
                         }
                     }
                    
@@ -237,10 +237,10 @@ namespace DoAn_NMLT_20880106
                     }
                     PrintScore();
                 }
-                if (hightBird <=2 || hightBird >= 27)
+                if (hightBird < 2 || hightBird >= 26)
                 {
                     //end game
-                   i = -20;
+                    i = -10;
                 }
                 pointBir[0].Y = hightBird;
                 pointBir[1].Y = hightBird;
@@ -266,9 +266,16 @@ namespace DoAn_NMLT_20880106
                 {
                     DeleteShadowDown(bird);
                 }
-                
 
-                hightBird++;
+                if (skip==2 || skip ==4 || skip ==6 || skip==8 || skip ==10 && speedGame > 40)
+                {
+
+                    hightBird++;
+                }
+                if (skip == 5 && speedGame<=40)
+                {
+                    hightBird++;
+                }
                 pointBir[0].Y = hightBird;
                 pointBir[1].Y = hightBird;
                 bird = pointBir;
@@ -281,6 +288,11 @@ namespace DoAn_NMLT_20880106
                     i = 121;
                     first = false;
                 }
+                if(skip == 10)
+                {
+                    skip = 0;
+                }
+                skip++;
 
             }
             GameOverFB();

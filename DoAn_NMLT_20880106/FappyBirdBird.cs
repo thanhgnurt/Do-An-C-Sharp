@@ -47,22 +47,13 @@ namespace DoAn_NMLT_20880106
             }
 
         }
-        //----tao chieu cao--
-        public static int InitialHight()
-        {
-            int height = 14;
-            return height;
-        }
-        //--- return hight---
-        public static void ReturnHight()
-        {
-        }
+     
 
         //---active move bird---
         public static void ActiveMoveBird(POINT[]pBird)
         {
             DeleteShadowUp(pBird);
-            WriteBird(pBird);
+            WriteMoveBird(pBird);
         }
         //----delete shadow down---
         public static void DeleteShadowDown(POINT[] pBird)
@@ -96,17 +87,21 @@ namespace DoAn_NMLT_20880106
         //-----write move bird-----
         public static void WriteMoveBird(POINT[] pBird)
         {
-            for (int i = 0; i < pBird.Length; i++)
-            {
+           
                 if (pBird[0].Y >= 0)
                 {
-                    Console.SetCursorPosition(pBird[i].X, pBird[i].Y);
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.Write(" ");
+                    Console.SetCursorPosition(pBird[0].X, pBird[0].Y);
                     Console.BackgroundColor = ConsoleColor.White;
-                }
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("x");
+                    Console.SetCursorPosition(pBird[1].X, pBird[1].Y);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.Write("O");
+
 
             }
+
         }
         //----active move bird--delete shadow bird---
         public static void DeleteShadowBird(POINT[] pBird, string direction)
@@ -146,24 +141,7 @@ namespace DoAn_NMLT_20880106
 
 
         }
-        //---active move bird--write bird---
 
-        public static void WriteBird(POINT[] pBird)
-        {
-         
-            for (int i = 0; i < pBird.Length; i++)
-            {
-                if (pBird[0].Y >= 0)
-                {
-                    Console.SetCursorPosition(pBird[i].X, pBird[i].Y);
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.Write(" ");
-                    Console.BackgroundColor = ConsoleColor.White;
-                }
-
-            }
-
-        }
         //point bird-----start
         public static POINT[] pointBird()
         {
